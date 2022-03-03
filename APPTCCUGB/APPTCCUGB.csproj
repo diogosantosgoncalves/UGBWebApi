@@ -63,6 +63,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UserControlCadastroProdutos.xaml.cs">
+      <DependentUpon>UserControlCadastroProdutos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlCadastroSetor.xaml.cs">
+      <DependentUpon>UserControlCadastroSetor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlCadastroTurnos.xaml.cs">
+      <DependentUpon>UserControlCadastroTurnos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlCadastroUsuarios.xaml.cs">
+      <DependentUpon>UserControlCadastroUsuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlConsultaProduto.xaml.cs">
+      <DependentUpon>UserControlConsultaProduto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlConsultaSetor.xaml.cs">
+      <DependentUpon>UserControlConsultaSetor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlConsultaTurno.xaml.cs">
+      <DependentUpon>UserControlConsultaTurno.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlConsultaUsuario.xaml.cs">
+      <DependentUpon>UserControlConsultaUsuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControlCustomers.xaml.cs">
       <DependentUpon>UserControlCustomers.xaml</DependentUpon>
     </Compile>
@@ -86,6 +110,38 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControlCadastroProdutos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControlCadastroSetor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControlCadastroTurnos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControlCadastroUsuarios.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControlConsultaProduto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControlConsultaSetor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControlConsultaTurno.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControlConsultaUsuario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControlCustomers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
