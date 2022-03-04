@@ -1,0 +1,91 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.3.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DalCore\DalCore.csproj" />
+    <ProjectReference Include="..\DalStandard\DalStandard.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="UserControlCadastroProdutos.xaml.cs">
+      <DependentUpon>UserControlCadastroProdutos.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControlCadastroSetor.xaml.cs">
+      <DependentUpon>UserControlCadastroSetor.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControlCadastroTurnos.xaml.cs">
+      <DependentUpon>UserControlCadastroTurnos.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControlCadastroUsuarios.xaml.cs">
+      <DependentUpon>UserControlCadastroUsuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControlConsultaProduto.xaml.cs">
+      <DependentUpon>UserControlConsultaProduto.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControlConsultaSetor.xaml.cs">
+      <DependentUpon>UserControlConsultaSetor.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControlConsultaTurno.xaml.cs">
+      <DependentUpon>UserControlConsultaTurno.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControlConsultaUsuario.xaml.cs">
+      <DependentUpon>UserControlConsultaUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControlCustomers.xaml.cs">
+      <DependentUpon>UserControlCustomers.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControlMenuItem.xaml.cs">
+      <DependentUpon>UserControlMenuItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserControlProviders.xaml.cs">
+      <DependentUpon>UserControlProviders.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="UserControlCadastroProdutos.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlCadastroSetor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlCadastroTurnos.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlCadastroUsuarios.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlConsultaProduto.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlConsultaSetor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlConsultaTurno.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlConsultaUsuario.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlCustomers.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlMenuItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlProviders.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

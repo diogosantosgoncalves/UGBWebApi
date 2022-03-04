@@ -1,5 +1,4 @@
-﻿using DalFramework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,18 +16,13 @@ using System.Windows.Shapes;
 namespace APPTCCUGB
 {
     /// <summary>
-    /// Interação lógica para UserControlProviders.xam
+    /// Interação lógica para UserControlCustomers.xam
     /// </summary>
-    public partial class UserControlCadastroProdutos : UserControl
+    public partial class UserControlCustomers : UserControl
     {
-        public UserControlCadastroProdutos()
+        public UserControlCustomers()
         {
             InitializeComponent();
-        }
-
-        public static void Teste()
-        {
-            ClassFramework teste = new ClassFramework();
         }
     }
 }
