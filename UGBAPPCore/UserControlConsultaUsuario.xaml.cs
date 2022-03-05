@@ -1,4 +1,6 @@
-﻿using System;
+﻿using APPTCCUGB.Context;
+using APPTCCUGB.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,32 @@ namespace APPTCCUGB
     /// </summary>
     public partial class UserControlConsultaUsuario : UserControl
     {
+        AppDbContext dbSqlServer = new AppDbContext();
+        string buscaUsuario = string.Empty;
         public UserControlConsultaUsuario()
         {
             InitializeComponent();
+        }
+
+        private void bt_ConsultaUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            buscaUsuario = txtUsuario.Text;
+            dtgr_ConsultaUsuario.ItemsSource = dbSqlServer.Usuarios.Where(i => i.Nome.Contains(buscaUsuario)).ToList();
+        }
+
+        private void btEditarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuario = new Usuario();
+            usuario = dbSqlServer.Usuarios.FirstOrDefault(i => i.Id.Equals(PegarCodigo()));
+        }
+
+        public int PegarCodigo()
+        {
+            var selectedItem = dtgr_ConsultaUsuario.SelectedItem.ToString();
+            Type t = dtgr_ConsultaUsuario.SelectedItem.GetType();
+            System.Reflection.PropertyInfo[] props = t.GetProperties();
+            string propertyValue = props[0].GetValue(dtgr_ConsultaUsuario.SelectedItem, null).ToString();
+            return int.Parse(propertyValue);
         }
     }
 }

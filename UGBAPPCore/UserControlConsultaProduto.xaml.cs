@@ -1,4 +1,6 @@
-﻿using System;
+﻿using APPTCCUGB.Context;
+using APPTCCUGB.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UGBAPPCore;
 
 namespace APPTCCUGB
 {
@@ -20,9 +23,35 @@ namespace APPTCCUGB
     /// </summary>
     public partial class UserControlConsultaProduto : UserControl
     {
+        AppDbContext dbSqlServer = new AppDbContext();
+        string buscaProduto = string.Empty;
         public UserControlConsultaProduto()
         {
             InitializeComponent();
+        }
+
+        private void bt_ConsultaUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            buscaProduto = txt_nomeUsuario.Text;
+            dtgr_ConsultaUsuario.ItemsSource = dbSqlServer.Produtos.Where(i => i.Nome.Contains(buscaProduto)).ToList();
+        }
+
+        private void btEditarProduto_Click(object sender, RoutedEventArgs e)
+        {
+            Produto produto = new Produto();
+            produto = dbSqlServer.Produtos.FirstOrDefault(i => i.Id.Equals(PegarCodigo()));
+
+            UserControlMenuItem.testeTela(new UserControlCadastroProdutos(produto));
+        }
+
+
+        public int PegarCodigo()
+        {
+            var selectedItem = dtgr_ConsultaUsuario.SelectedItem.ToString();
+            Type t = dtgr_ConsultaUsuario.SelectedItem.GetType();
+            System.Reflection.PropertyInfo[] props = t.GetProperties();
+            string propertyValue = props[0].GetValue(dtgr_ConsultaUsuario.SelectedItem, null).ToString();
+            return int.Parse(propertyValue);
         }
     }
 }

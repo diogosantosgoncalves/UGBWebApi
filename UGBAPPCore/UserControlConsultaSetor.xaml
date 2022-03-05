@@ -22,60 +22,39 @@
         <Label Content="Consulta de Setor" Grid.ColumnSpan="3"
             Grid.Row="0" Grid.Column="0" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center"/>
         <Label FontWeight="Black" Name="lb_nomeUsuario" FontSize="20" Content="Nome do Setor:" Grid.Row="2" />
-        <TextBox Margin="10" FontSize="18" Name="txt_nomeUsuario" Grid.Row="2" Grid.Column="1" />
-        <Button Name="bt_ConsultaUsuario" Content="Consultar"  Grid.Row="2" Grid.Column="2" />
+        <TextBox Margin="10" FontSize="18" Name="txtSetor" Grid.Row="2" Grid.Column="1" Cursor="IBeam" />
+        <Button Name="bt_ConsultaSetor" Content="Consultar"  Grid.Row="2" Grid.Column="2" Click="bt_ConsultaSetor_Click"/>
 
-        <DataGrid MaxWidth="1000" Width="auto" MaxHeight="350" IsReadOnly="True" Name="dtgr_ConsultaUsuario" AlternationCount="2" AlternatingRowBackground="LightBlue" Grid.Row="3" Grid.ColumnSpan="3" AutoGenerateColumns="False">
+        <DataGrid MaxWidth="1000" Width="auto" MaxHeight="350" IsReadOnly="True" Name="dtgr_ConsultaSetor" AlternationCount="2" AlternatingRowBackground="LightBlue" Grid.Row="3" Grid.ColumnSpan="3" AutoGenerateColumns="False">
             <DataGrid.Columns>
 
-                <DataGridTextColumn  Foreground="Red" Width="100" Header="Código" Binding="{Binding usu_id}"/>
-                <DataGridTextColumn  Width="300" Header="Nome" Binding="{Binding usu_nome}"/>
-                <DataGridCheckBoxColumn  Header="Deslogado" Width="100" Binding="{Binding usu_deslogado,Mode=OneWay}"/>
-                <DataGridCheckBoxColumn  Header="  Inativo" Width="100" Binding="{Binding usu_inativo,Mode=OneWay}"/>
+                <DataGridTextColumn  Foreground="Red" Width="100" Header="Código" Binding="{Binding Id}"/>
+                <DataGridTextColumn  Width="300" Header="Nome" Binding="{Binding Nome}"/>
                 <DataGridTemplateColumn Width="100" Header="Editar" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate >
-                            <DockPanel HorizontalAlignment="Left">
-                                <TextBlock >
-                                        <Hyperlink  Command="{Binding DataContext.DeleteOrganisationCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}">
-                                            <Image   Height="22" />
-                                        </Hyperlink>
-                                </TextBlock>
-                            </DockPanel>
+                            <StackPanel>
+                                <Button
+                                    Name="PreviewNotificationPopup"                                                         
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Content="Editar"                                
+                                    IsEnabled="True" BorderBrush="Orange" Background="Orange" Click="btEditarSetor_Click">
+                                </Button>
+                            </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Width="100" Header="Deletar" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate >
-                            <DockPanel HorizontalAlignment="Left">
-                                <TextBlock >
-                                        <Hyperlink  Command="{Binding DataContext.DeleteOrganisationCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}">
-                                            <Image   Height="22" />
-                                        </Hyperlink>
-                                </TextBlock>
-                            </DockPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <!--<DataGridTemplateColumn Header="Editar" Width="100">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Image Name="ImagemEditar" HorizontalAlignment="Left" Height="25" Width="50" Source="{Binding ImagemEditar}"  />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>-->
-                <DataGridTemplateColumn Header="Permissão" Width="120" >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
                             <StackPanel>
                                 <Button
                                     Name="PreviewNotificationPopup"                                                         
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
-                                    Content="Permissão"                                
-                                    IsEnabled="True" BorderBrush="White">
-
+                                    Content="Excluir"                                
+                                    IsEnabled="True" BorderBrush="Red" Background="Red" Click="btEditarSetor_Click">
                                 </Button>
                             </StackPanel>
                         </DataTemplate>

@@ -23,11 +23,13 @@ namespace APPTCCUGB
     public partial class UserControlMenuItem : UserControl
     {
         MainWindow _context;
+        static MainWindow _context2;
         public UserControlMenuItem(ItemMenu itemMenu, MainWindow context)
         {
             InitializeComponent();
 
             _context = context;
+            _context2 = context;
 
             ExpanderMenu.Visibility = itemMenu.SubItems == null ? Visibility.Collapsed : Visibility.Visible;
             ListViewItemMenu.Visibility = itemMenu.SubItems == null ? Visibility.Visible : Visibility.Collapsed;
@@ -38,6 +40,11 @@ namespace APPTCCUGB
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _context.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
+        }
+
+        public static void testeTela(UserControl userControl)
+        {
+           _context2.callEditTela2(userControl);
         }
     }
 }

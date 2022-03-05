@@ -1,4 +1,6 @@
-﻿using System;
+﻿using APPTCCUGB.Context;
+using APPTCCUGB.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,28 @@ namespace APPTCCUGB
     /// </summary>
     public partial class UserControlCadastroTurnos : UserControl
     {
+        AppDbContext dbSqlServer = new AppDbContext();
         public UserControlCadastroTurnos()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Turno turno = new Turno();
+
+            turno.Id = int.Parse(txtCodigo.Text);
+            turno.Nome = txtNome.Text;
+            turno.Qtde = txtHorasProducao.Text;
+
+            dbSqlServer.Turnos.Add(turno);
+
+            if (turno.Id == 0)
+            {
+                dbSqlServer.SaveChanges();
+            }
+            else
+                dbSqlServer.Update(turno);
         }
     }
 }

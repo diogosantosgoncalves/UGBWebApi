@@ -1,4 +1,6 @@
-﻿using System;
+﻿using APPTCCUGB.Context;
+using APPTCCUGB.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,37 @@ namespace APPTCCUGB
     /// </summary>
     public partial class UserControlConsultaSetor : UserControl
     {
+        AppDbContext dbSqlServer = new AppDbContext();
+        string buscaSetor = string.Empty;
         public UserControlConsultaSetor()
         {
             InitializeComponent();
+        }
+
+        private void bt_ConsultaSetor_Click(object sender, RoutedEventArgs e)
+        {
+            buscaSetor = txtSetor.Text;
+            dtgr_ConsultaSetor.ItemsSource = dbSqlServer.Setores2.Where(i => i.Nome.Contains(buscaSetor)).ToList();
+        }
+
+        private void btEditarSetor_Click(object sender, RoutedEventArgs e)
+        {
+            Setores setor = new Setores();
+            setor = dbSqlServer.Setores2.FirstOrDefault(i => i.Id.Equals(PegarCodigo()));
+        }
+
+        public int PegarCodigo()
+        {
+            var selectedItem = dtgr_ConsultaSetor.SelectedItem.ToString();
+            Type t = dtgr_ConsultaSetor.SelectedItem.GetType();
+            System.Reflection.PropertyInfo[] props = t.GetProperties();
+            string propertyValue = props[0].GetValue(dtgr_ConsultaSetor.SelectedItem, null).ToString();
+            return int.Parse(propertyValue);
+        }
+
+        private void PreviewNotificationPopup_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

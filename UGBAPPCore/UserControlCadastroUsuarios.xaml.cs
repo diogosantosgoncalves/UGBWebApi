@@ -1,4 +1,6 @@
-﻿using System;
+﻿using APPTCCUGB.Context;
+using APPTCCUGB.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,27 @@ namespace APPTCCUGB
     /// </summary>
     public partial class UserControlCadastroUsuarios : UserControl
     {
+        AppDbContext dbSqlServer = new AppDbContext();
         public UserControlCadastroUsuarios()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuario = new Usuario();
+
+            usuario.Id = int.Parse(txtCodigo.Text);
+            usuario.Nome = txtNome.Text;
+
+            dbSqlServer.Usuarios.Add(usuario);
+
+            if (usuario.Id == 0)
+            {
+                dbSqlServer.SaveChanges();
+            }
+            else
+                dbSqlServer.Update(usuario);
         }
     }
 }

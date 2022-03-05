@@ -75,11 +75,22 @@ namespace UGBAPPCore
             }
         }
 
-        public static void teste()
+        public static void callEditTela(UserControl userControl)
         {
-            Class1 teste = new Class1();
-            ClassStantard teste4 = new ClassStantard();
+            StackPanel stackPanel = new StackPanel();
 
+            var screen = userControl;
+
+            stackPanel.Children.Clear();
+            stackPanel.Children.Add(screen);
+        }
+
+        public void callEditTela2(UserControl userControl)
+        {
+            var screen = userControl;
+
+            StackPanelMain.Children.Clear();
+            StackPanelMain.Children.Add(screen);
         }
     }
 }
