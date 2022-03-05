@@ -26,6 +26,8 @@ namespace APPTCCUGB
         public UserControlCadastroUsuarios()
         {
             InitializeComponent();
+            bStatus.Content = string.Empty;
+            bStatus.Visibility = Visibility.Collapsed;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -43,6 +45,11 @@ namespace APPTCCUGB
             }
             else
                 dbSqlServer.Update(usuario);
+
+            txtCodigo.Text = usuario.Id.ToString();
+
+            bStatus.Content = "Cadastrado com sucesso!";
+            bStatus.Visibility = Visibility.Visible;
         }
     }
 }

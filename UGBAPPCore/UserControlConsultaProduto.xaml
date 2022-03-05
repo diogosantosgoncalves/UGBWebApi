@@ -6,20 +6,6 @@
              xmlns:local="clr-namespace:APPTCCUGB"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="AliceBlue">
-    <UserControl.Resources>
-        <Style x:Key="Body_Content_DataGrid_Centering"
-        TargetType="{x:Type DataGridCell}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type DataGridCell}">
-                        <Grid Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" />
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </UserControl.Resources>
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -37,12 +23,12 @@
             Grid.Row="0" Grid.Column="0" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center"/>
         <Label FontWeight="Black" Name="lb_nomeUsuario" FontSize="20" Content="Nome do Produto:" Grid.Row="2" />
         <TextBox Margin="10" FontSize="18" Name="txt_nomeUsuario" Grid.Row="2" Grid.Column="1" />
-        <Button Name="bt_ConsultaUsuario" Content="Consultar"  Grid.Row="2" Grid.Column="2" Cursor="Hand" Click="bt_ConsultaUsuario_Click"/>
+        <Button Name="bt_ConsultarProduto" Content="Consultar"  Grid.Row="2" Grid.Column="2" Cursor="Hand" Click="bt_ConsultarProduto_Click"/>
 
-        <DataGrid MaxWidth="1000" Width="auto" MaxHeight="350" IsReadOnly="True" Name="dtgr_ConsultaUsuario" AlternationCount="2" AlternatingRowBackground="LightBlue" Grid.Row="3" Grid.ColumnSpan="3" AutoGenerateColumns="False" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" >
+        <DataGrid MaxWidth="1000" Width="auto" MaxHeight="350" IsReadOnly="True" Name="dtgr_ConsultaUsuario" AlternationCount="2" AlternatingRowBackground="LightBlue" Grid.Row="3" Grid.ColumnSpan="3" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Foreground="Red" Width="100" Header="Código"  Binding="{Binding Id}"/>
-                <DataGridTextColumn  Width="300" Header="Nome" Binding="{Binding Nome}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn  Width="650" Header="Nome" Binding="{Binding Nome}" FontFamily="Arial" FontStyle="Oblique"/>
                 <DataGridTemplateColumn Width="100" Header="" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate >
@@ -67,7 +53,7 @@
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
                                     Content="Excluir"                                
-                                    IsEnabled="True" BorderBrush="Red" Background="Red" Click="btEditarProduto_Click">
+                                    IsEnabled="True" BorderBrush="Red" Background="Red" Click="btExcluirProduto_Click">
                                 </Button>
                             </StackPanel>
                         </DataTemplate>

@@ -59,9 +59,9 @@ namespace UGBAPPCore
 
             Menu.Children.Add(new UserControlMenuItem(item6, this));
             Menu.Children.Add(new UserControlMenuItem(item1, this));
-            Menu.Children.Add(new UserControlMenuItem(item2, this));
             Menu.Children.Add(new UserControlMenuItem(item3, this));
             Menu.Children.Add(new UserControlMenuItem(item4, this));
+            //Menu.Children.Add(new UserControlMenuItem(item2, this));
         }
 
         internal void SwitchScreen(object sender)

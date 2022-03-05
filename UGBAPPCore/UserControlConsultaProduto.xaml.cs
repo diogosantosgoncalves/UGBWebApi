@@ -30,7 +30,9 @@ namespace APPTCCUGB
             InitializeComponent();
         }
 
-        private void bt_ConsultaUsuario_Click(object sender, RoutedEventArgs e)
+        private void bt_ConsultarProduto_Click(object sender, RoutedEventArgs e) => consultarProduto();
+
+        public void consultarProduto()
         {
             buscaProduto = txt_nomeUsuario.Text;
             dtgr_ConsultaUsuario.ItemsSource = dbSqlServer.Produtos.Where(i => i.Nome.Contains(buscaProduto)).ToList();
@@ -52,6 +54,16 @@ namespace APPTCCUGB
             System.Reflection.PropertyInfo[] props = t.GetProperties();
             string propertyValue = props[0].GetValue(dtgr_ConsultaUsuario.SelectedItem, null).ToString();
             return int.Parse(propertyValue);
+        }
+
+        private void btExcluirProduto_Click(object sender, RoutedEventArgs e)
+        {
+            Produto produto = (Produto)dtgr_ConsultaUsuario.SelectedItem;
+            dbSqlServer.Produtos.Attach(produto);
+            dbSqlServer.Produtos.Remove(produto);
+            dbSqlServer.SaveChanges();
+
+            consultarProduto();
         }
     }
 }

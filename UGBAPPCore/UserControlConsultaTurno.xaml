@@ -29,8 +29,8 @@
             <DataGrid.Columns>
 
                 <DataGridTextColumn  Foreground="Red" Width="100" Header="Código" Binding="{Binding Id}"/>
-                <DataGridTextColumn  Width="300" Header="Nome" Binding="{Binding Nome}"/>
-                <DataGridTemplateColumn Width="100" Header="Editar" IsReadOnly="True">
+                <DataGridTextColumn  Width="650" Header="Nome" Binding="{Binding Nome}"/>
+                <DataGridTemplateColumn Width="100" Header="" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate >
                             <StackPanel>
@@ -45,7 +45,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="100" Header="Deletar" IsReadOnly="True">
+                <DataGridTemplateColumn Width="110" Header="" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate >
                             <StackPanel>
@@ -54,14 +54,12 @@
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
                                     Content="Excluir"                                
-                                    IsEnabled="True" BorderBrush="Red" Background="Red" Click="btEditarTurno_Click">
+                                    IsEnabled="True" BorderBrush="Red" Background="Red" Click="btExcluirTurno_Click">
                                 </Button>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-
-
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

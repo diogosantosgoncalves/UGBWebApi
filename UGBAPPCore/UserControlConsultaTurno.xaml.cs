@@ -29,7 +29,9 @@ namespace APPTCCUGB
             InitializeComponent();
         }
 
-        private void bt_ConsultaTurno_Click(object sender, RoutedEventArgs e)
+        private void bt_ConsultaTurno_Click(object sender, RoutedEventArgs e) => consultarTurno();
+
+        public void consultarTurno()
         {
             buscaturno = txtUsuario.Text;
             dtgr_ConsultaTurno.ItemsSource = dbSqlServer.Turnos.Where(i => i.Nome.Contains(buscaturno)).ToList();
@@ -48,6 +50,16 @@ namespace APPTCCUGB
             System.Reflection.PropertyInfo[] props = t.GetProperties();
             string propertyValue = props[0].GetValue(dtgr_ConsultaTurno.SelectedItem, null).ToString();
             return int.Parse(propertyValue);
+        }
+
+        private void btExcluirTurno_Click(object sender, RoutedEventArgs e)
+        {
+            Turno turno = (Turno)dtgr_ConsultaTurno.SelectedItem;
+            dbSqlServer.Turnos.Attach(turno);
+            dbSqlServer.Turnos.Remove(turno);
+            dbSqlServer.SaveChanges();
+
+            consultarTurno();
         }
     }
 }

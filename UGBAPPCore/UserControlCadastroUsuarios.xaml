@@ -40,7 +40,7 @@
         <StackPanel Grid.Row="1" Orientation="Vertical" Margin="10,10,0,30">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
                 <Label Content="Código:" VerticalAlignment="Center" FontWeight="Black" FontSize="15"/>
-                <TextBox x:Name="txtCodigo" Template="{StaticResource TextBoxBaseControlTemplate}" Margin="10,5,10,0" Width="50" BorderBrush="Black" BorderThickness="0.8" IsEnabled="False"/>
+                <TextBox x:Name="txtCodigo" Text="0" Template="{StaticResource TextBoxBaseControlTemplate}" Margin="10,5,10,0" Width="50" BorderBrush="Black" BorderThickness="0.8" IsEnabled="False" Cursor="IBeam"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,20,0,0">
                 <Label Content="Nome:" VerticalAlignment="Center" FontWeight="Black" FontSize="15"/>
@@ -50,6 +50,6 @@
         <StackPanel Grid.Row="2" HorizontalAlignment="Left" Margin="15,0,0,0">
             <Button Content="Cadastrar" Click="Button_Click"/>
         </StackPanel>
-        <Label Grid.Row="3" Content="Cadastrado com sucesso!" Visibility="Hidden"/>
+        <Label Grid.Row="3" x:Name="bStatus" Visibility="Hidden"/>
     </Grid>
 </UserControl>

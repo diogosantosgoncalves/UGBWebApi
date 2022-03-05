@@ -27,9 +27,8 @@
 
         <DataGrid MaxWidth="1000" Width="auto" MaxHeight="350" IsReadOnly="True" Name="dtgr_ConsultaUsuario" AlternationCount="2" AlternatingRowBackground="LightBlue" Grid.Row="3" Grid.ColumnSpan="3" AutoGenerateColumns="False">
             <DataGrid.Columns>
-
                 <DataGridTextColumn  Foreground="Red" Width="100" Header="Código" Binding="{Binding Id}"/>
-                <DataGridTextColumn  Width="300" Header="Nome" Binding="{Binding Nome}"/>
+                <DataGridTextColumn  Width="650" Header="Nome" Binding="{Binding Nome}"/>
                 <DataGridTemplateColumn Width="100" Header="" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate >
@@ -45,16 +44,18 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="100" Header="" IsReadOnly="True">
+                <DataGridTemplateColumn Width="110" Header="" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate >
-                            <DockPanel HorizontalAlignment="Left">
-                                <TextBlock >
-                                        <Hyperlink  Command="{Binding DataContext.DeleteOrganisationCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}">
-                                            <Image   Height="22" />
-                                        </Hyperlink>
-                                </TextBlock>
-                            </DockPanel>
+                            <StackPanel>
+                                <Button
+                                    Name="PreviewNotificationPopup"                                                         
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Content="Excluir"                                
+                                    IsEnabled="True" BorderBrush="Red" Background="Red" Click="btExcluirUsuario_Click">
+                                </Button>
+                            </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

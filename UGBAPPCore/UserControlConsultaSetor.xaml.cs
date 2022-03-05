@@ -29,17 +29,21 @@ namespace APPTCCUGB
             InitializeComponent();
         }
 
-        private void bt_ConsultaSetor_Click(object sender, RoutedEventArgs e)
+        private void bt_ConsultaSetor_Click(object sender, RoutedEventArgs e) => consultarSetor();
+
+        public void consultarSetor()
         {
             buscaSetor = txtSetor.Text;
             dtgr_ConsultaSetor.ItemsSource = dbSqlServer.Setores2.Where(i => i.Nome.Contains(buscaSetor)).ToList();
         }
+
 
         private void btEditarSetor_Click(object sender, RoutedEventArgs e)
         {
             Setores setor = new Setores();
             setor = dbSqlServer.Setores2.FirstOrDefault(i => i.Id.Equals(PegarCodigo()));
         }
+
 
         public int PegarCodigo()
         {
@@ -50,9 +54,14 @@ namespace APPTCCUGB
             return int.Parse(propertyValue);
         }
 
-        private void PreviewNotificationPopup_Click(object sender, RoutedEventArgs e)
+        private void btExcluirSetor_Click(object sender, RoutedEventArgs e)
         {
+            Usuario usuario = (Usuario)dtgr_ConsultaSetor.SelectedItem;
+            dbSqlServer.Usuarios.Attach(usuario);
+            dbSqlServer.Usuarios.Remove(usuario);
+            dbSqlServer.SaveChanges();
 
+            consultarSetor();
         }
     }
 }
