@@ -42,6 +42,8 @@ namespace APPTCCUGB
         {
             Setores setor = new Setores();
             setor = dbSqlServer.Setores2.FirstOrDefault(i => i.Id.Equals(PegarCodigo()));
+
+            UserControlMenuItem.testeTela(new UserControlCadastroSetor(setor));
         }
 
 

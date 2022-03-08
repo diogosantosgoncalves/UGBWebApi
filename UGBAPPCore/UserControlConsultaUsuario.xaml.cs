@@ -41,6 +41,8 @@ namespace APPTCCUGB
         {
             Usuario usuario = new Usuario();
             usuario = dbSqlServer.Usuarios.FirstOrDefault(i => i.Id.Equals(PegarCodigo()));
+
+            UserControlMenuItem.testeTela(new UserControlCadastroUsuarios(usuario));
         }
 
         public int PegarCodigo()

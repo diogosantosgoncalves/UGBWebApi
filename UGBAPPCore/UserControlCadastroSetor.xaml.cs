@@ -27,6 +27,28 @@ namespace APPTCCUGB
         public UserControlCadastroSetor()
         {
             InitializeComponent();
+            bStatus.Visibility = System.Windows.Visibility.Collapsed;
+            clearSetor();
+        }
+
+        public UserControlCadastroSetor(Setores setor)
+        {
+            InitializeComponent();
+            fillSetor(setor);
+        }
+
+        public void clearSetor()
+        {
+            txtCodigo.Text = "0";
+            txtNome.Text =
+                txtHorasProducao.Text = string.Empty;
+        }
+
+        public void fillSetor(Setores setor)
+        {
+            txtCodigo.Text = setor.Id.ToString();
+            txtNome.Text = setor.Nome;
+            txtHorasProducao.Text = setor.HorasProducao.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,11 +62,18 @@ namespace APPTCCUGB
             dbSqlServer.Setores2.Add(setores);
 
             if (setores.Id == 0)
+                dbSqlServer.SaveChanges();
+            else
             {
+                dbSqlServer.Setores2.Attach(setores);
+                dbSqlServer.Update(setores);
                 dbSqlServer.SaveChanges();
             }
-            else
-                dbSqlServer.Update(setores);
+
+            txtCodigo.Text = setores.Id.ToString();
+
+            bStatus.Content = "Cadastrado com sucesso!";
+            bStatus.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }

@@ -16,17 +16,32 @@ namespace APPTCCUGB
         {
             InitializeComponent();
             bStatus.Visibility = System.Windows.Visibility.Collapsed;
+            clearProduto();
         }
 
         public UserControlCadastroProdutos(Produto produto)
         {
             InitializeComponent();
+            fillProduto(produto);
+        }
 
+        public void clearProduto()
+        {
+            txtCodigo.Text = "0";
+            txtNome.Text =
+                txtQtdeEstimativa.Text =
+                txtUnidade.Text = string.Empty;
+        }
+
+        public void fillProduto(Produto produto)
+        {
             txtCodigo.Text = produto.Id.ToString();
             txtNome.Text = produto.Nome;
             txtQtdeEstimativa.Text = produto.QtdeEstimativa.ToString();
             txtUnidade.Text = produto.Qtde.ToString();
         }
+
+
 
         public static void Teste()
         {
@@ -48,7 +63,13 @@ namespace APPTCCUGB
                 dbSqlServer.SaveChanges();
             }
             else
+            {
+                dbSqlServer.Produtos.Attach(produto);
                 dbSqlServer.Update(produto);
+                dbSqlServer.SaveChanges();
+
+                // fill Produto
+            }
 
             txtCodigo.Text = produto.Id.ToString();
 

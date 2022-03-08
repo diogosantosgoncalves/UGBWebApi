@@ -28,6 +28,25 @@ namespace APPTCCUGB
             InitializeComponent();
             bStatus.Content = string.Empty;
             bStatus.Visibility = Visibility.Collapsed;
+            clearUsuario();
+        }
+
+        public UserControlCadastroUsuarios(Usuario usuario)
+        {
+            InitializeComponent();
+            fillUsuario(usuario);
+        }
+
+        public void clearUsuario()
+        {
+            txtCodigo.Text = "0";
+            txtNome.Text = string.Empty;
+        }
+
+        public void fillUsuario(Usuario usuario)
+        {
+            txtCodigo.Text = usuario.Id.ToString();
+            txtNome.Text = usuario.Nome;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,11 +59,13 @@ namespace APPTCCUGB
             dbSqlServer.Usuarios.Add(usuario);
 
             if (usuario.Id == 0)
+                dbSqlServer.SaveChanges();
+            else
             {
+                dbSqlServer.Usuarios.Attach(usuario);
+                dbSqlServer.Update(usuario);
                 dbSqlServer.SaveChanges();
             }
-            else
-                dbSqlServer.Update(usuario);
 
             txtCodigo.Text = usuario.Id.ToString();
 

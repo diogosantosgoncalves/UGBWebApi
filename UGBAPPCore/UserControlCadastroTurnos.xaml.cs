@@ -26,6 +26,28 @@ namespace APPTCCUGB
         public UserControlCadastroTurnos()
         {
             InitializeComponent();
+            bStatus.Visibility = System.Windows.Visibility.Collapsed;
+            clearTurno();
+        }
+
+        public UserControlCadastroTurnos(Turno turno)
+        {
+            InitializeComponent();
+            fillTurno(turno);
+        }
+
+        public void clearTurno()
+        {
+            txtCodigo.Text = "0";
+            txtNome.Text =
+                txtHorasProducao.Text = string.Empty;
+        }
+
+        public void fillTurno(Turno turno)
+        {
+            txtCodigo.Text = turno.Id.ToString();
+            txtNome.Text = turno.Nome;
+            txtHorasProducao.Text = turno.Qtde.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -39,11 +61,18 @@ namespace APPTCCUGB
             dbSqlServer.Turnos.Add(turno);
 
             if (turno.Id == 0)
+                dbSqlServer.SaveChanges();
+            else
             {
+                dbSqlServer.Turnos.Attach(turno);
+                dbSqlServer.Update(turno);
                 dbSqlServer.SaveChanges();
             }
-            else
-                dbSqlServer.Update(turno);
+
+            txtCodigo.Text = turno.Id.ToString();
+
+            bStatus.Content = "Cadastrado com sucesso!";
+            bStatus.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }

@@ -41,6 +41,8 @@ namespace APPTCCUGB
         {
             Turno turno = new Turno();
             turno = dbSqlServer.Turnos.FirstOrDefault(i => i.Id.Equals(PegarCodigo()));
+
+            UserControlMenuItem.testeTela(new UserControlCadastroTurnos(turno));
         }
 
         public int PegarCodigo()

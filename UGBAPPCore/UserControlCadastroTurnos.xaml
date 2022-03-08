@@ -54,6 +54,6 @@
         <StackPanel Grid.Row="2" HorizontalAlignment="Left" Margin="15,0,0,0">
             <Button Content="Cadastrar" Click="Button_Click"/>
         </StackPanel>
-        <Label Grid.Row="3" Content="Cadastrado com sucesso!" Visibility="Hidden"/>
+        <Label Name="bStatus" Grid.Row="3" Content="Cadastrado com sucesso!" Visibility="Hidden"/>
     </Grid>
 </UserControl>
