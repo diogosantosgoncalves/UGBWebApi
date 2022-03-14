@@ -67,7 +67,7 @@ namespace APPTCCUGB
                 dbSqlServer.Produtos.Attach(produto);
                 dbSqlServer.Update(produto);
                 dbSqlServer.SaveChanges();
-
+                UserControlMenuItem.testeTela(new UserControlConsultaProduto());
                 // fill Produto
             }
 

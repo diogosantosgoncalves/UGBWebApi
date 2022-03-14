@@ -64,7 +64,11 @@ namespace APPTCCUGB
             {
                 dbSqlServer.Usuarios.Attach(usuario);
                 dbSqlServer.Update(usuario);
+                dbSqlServer.Entry(usuario).Property(u => u.Nome).IsModified = true;
+                //dbSqlServer.Usuarios.mod
+                dbSqlServer.Entry(usuario).CurrentValues.SetValues(usuario);
                 dbSqlServer.SaveChanges();
+                UserControlMenuItem.testeTela(new UserControlConsultaUsuario());
             }
 
             txtCodigo.Text = usuario.Id.ToString();

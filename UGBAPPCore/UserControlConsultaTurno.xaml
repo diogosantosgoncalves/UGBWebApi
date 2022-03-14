@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
         <Label Content="Consulta de Turnos" Grid.ColumnSpan="3"
             Grid.Row="0" Grid.Column="0" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center"/>
-        <Label FontWeight="Black" Name="lb_nomeUsuario" FontSize="20" Content="Nome do Turno:" Grid.Row="2" />
+        <Label FontWeight="Black" Name="lb_nomeUsuario" FontSize="20" Content="Nome do Turno:" Grid.Row="2" VerticalAlignment="Center"/>
         <TextBox Margin="10" FontSize="18" Name="txtUsuario" Grid.Row="2" Grid.Column="1" Cursor="IBeam" />
         <Button Name="bt_ConsultaTurno" Content="Consultar"  Grid.Row="2" Grid.Column="2" Click="bt_ConsultaTurno_Click"/>
 

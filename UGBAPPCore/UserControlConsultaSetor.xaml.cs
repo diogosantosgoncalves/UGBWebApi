@@ -27,6 +27,8 @@ namespace APPTCCUGB
         public UserControlConsultaSetor()
         {
             InitializeComponent();
+            dtgr_ConsultaSetor.Items.Clear();
+            dtgr_ConsultaSetor.Items.Refresh();
         }
 
         private void bt_ConsultaSetor_Click(object sender, RoutedEventArgs e) => consultarSetor();
@@ -34,6 +36,7 @@ namespace APPTCCUGB
         public void consultarSetor()
         {
             buscaSetor = txtSetor.Text;
+            AppDbContext dbSqlServer = new AppDbContext();
             dtgr_ConsultaSetor.ItemsSource = dbSqlServer.Setores2.Where(i => i.Nome.Contains(buscaSetor)).ToList();
         }
 
@@ -41,6 +44,7 @@ namespace APPTCCUGB
         private void btEditarSetor_Click(object sender, RoutedEventArgs e)
         {
             Setores setor = new Setores();
+            AppDbContext dbSqlServer = new AppDbContext();
             setor = dbSqlServer.Setores2.FirstOrDefault(i => i.Id.Equals(PegarCodigo()));
 
             UserControlMenuItem.testeTela(new UserControlCadastroSetor(setor));

@@ -28,6 +28,8 @@ namespace APPTCCUGB
         public UserControlConsultaProduto()
         {
             InitializeComponent();
+            dtgr_ConsultaProduto.Items.Clear();
+            dtgr_ConsultaProduto.Items.Refresh();
         }
 
         private void bt_ConsultarProduto_Click(object sender, RoutedEventArgs e) => consultarProduto();
@@ -35,12 +37,14 @@ namespace APPTCCUGB
         public void consultarProduto()
         {
             buscaProduto = txt_nomeUsuario.Text;
-            dtgr_ConsultaUsuario.ItemsSource = dbSqlServer.Produtos.Where(i => i.Nome.Contains(buscaProduto)).ToList();
+            AppDbContext dbSqlServer = new AppDbContext();
+            dtgr_ConsultaProduto.ItemsSource = dbSqlServer.Produtos.Where(i => i.Nome.Contains(buscaProduto)).ToList();
         }
 
         private void btEditarProduto_Click(object sender, RoutedEventArgs e)
         {
             Produto produto = new Produto();
+            AppDbContext dbSqlServer = new AppDbContext();
             produto = dbSqlServer.Produtos.FirstOrDefault(i => i.Id.Equals(PegarCodigo()));
 
             UserControlMenuItem.testeTela(new UserControlCadastroProdutos(produto));
@@ -49,16 +53,16 @@ namespace APPTCCUGB
 
         public int PegarCodigo()
         {
-            var selectedItem = dtgr_ConsultaUsuario.SelectedItem.ToString();
-            Type t = dtgr_ConsultaUsuario.SelectedItem.GetType();
+            var selectedItem = dtgr_ConsultaProduto.SelectedItem.ToString();
+            Type t = dtgr_ConsultaProduto.SelectedItem.GetType();
             System.Reflection.PropertyInfo[] props = t.GetProperties();
-            string propertyValue = props[0].GetValue(dtgr_ConsultaUsuario.SelectedItem, null).ToString();
+            string propertyValue = props[0].GetValue(dtgr_ConsultaProduto.SelectedItem, null).ToString();
             return int.Parse(propertyValue);
         }
 
         private void btExcluirProduto_Click(object sender, RoutedEventArgs e)
         {
-            Produto produto = (Produto)dtgr_ConsultaUsuario.SelectedItem;
+            Produto produto = (Produto)dtgr_ConsultaProduto.SelectedItem;
             dbSqlServer.Produtos.Attach(produto);
             dbSqlServer.Produtos.Remove(produto);
             dbSqlServer.SaveChanges();

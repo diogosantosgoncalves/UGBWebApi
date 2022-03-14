@@ -68,6 +68,7 @@ namespace APPTCCUGB
                 dbSqlServer.Setores2.Attach(setores);
                 dbSqlServer.Update(setores);
                 dbSqlServer.SaveChanges();
+                UserControlMenuItem.testeTela(new UserControlConsultaProduto());
             }
 
             txtCodigo.Text = setores.Id.ToString();

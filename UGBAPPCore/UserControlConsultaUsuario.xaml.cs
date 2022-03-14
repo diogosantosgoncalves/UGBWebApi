@@ -27,6 +27,8 @@ namespace APPTCCUGB
         public UserControlConsultaUsuario()
         {
             InitializeComponent();
+            dtgr_ConsultaUsuario.Items.Clear();
+            dtgr_ConsultaUsuario.Items.Refresh();
         }
 
         private void bt_ConsultaUsuario_Click(object sender, RoutedEventArgs e) => consultarUsuario();
@@ -34,12 +36,14 @@ namespace APPTCCUGB
         public void consultarUsuario()
         {
             buscaUsuario = txtUsuario.Text;
+            AppDbContext dbSqlServer = new AppDbContext();
             dtgr_ConsultaUsuario.ItemsSource = dbSqlServer.Usuarios.Where(i => i.Nome.Contains(buscaUsuario)).ToList();
         }
 
         private void btEditarUsuario_Click(object sender, RoutedEventArgs e)
         {
             Usuario usuario = new Usuario();
+            AppDbContext dbSqlServer = new AppDbContext();
             usuario = dbSqlServer.Usuarios.FirstOrDefault(i => i.Id.Equals(PegarCodigo()));
 
             UserControlMenuItem.testeTela(new UserControlCadastroUsuarios(usuario));

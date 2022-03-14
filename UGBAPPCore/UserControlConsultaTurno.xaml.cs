@@ -27,6 +27,8 @@ namespace APPTCCUGB
         public UserControlConsultaTurno()
         {
             InitializeComponent();
+            dtgr_ConsultaTurno.Items.Clear();
+            dtgr_ConsultaTurno.Items.Refresh();
         }
 
         private void bt_ConsultaTurno_Click(object sender, RoutedEventArgs e) => consultarTurno();
@@ -34,12 +36,14 @@ namespace APPTCCUGB
         public void consultarTurno()
         {
             buscaturno = txtUsuario.Text;
+            AppDbContext dbSqlServer = new AppDbContext();
             dtgr_ConsultaTurno.ItemsSource = dbSqlServer.Turnos.Where(i => i.Nome.Contains(buscaturno)).ToList();
         }
 
         private void btEditarTurno_Click(object sender, RoutedEventArgs e)
         {
             Turno turno = new Turno();
+            AppDbContext dbSqlServer = new AppDbContext();
             turno = dbSqlServer.Turnos.FirstOrDefault(i => i.Id.Equals(PegarCodigo()));
 
             UserControlMenuItem.testeTela(new UserControlCadastroTurnos(turno));

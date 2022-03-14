@@ -67,6 +67,7 @@ namespace APPTCCUGB
                 dbSqlServer.Turnos.Attach(turno);
                 dbSqlServer.Update(turno);
                 dbSqlServer.SaveChanges();
+                UserControlMenuItem.testeTela(new UserControlConsultaTurno());
             }
 
             txtCodigo.Text = turno.Id.ToString();
