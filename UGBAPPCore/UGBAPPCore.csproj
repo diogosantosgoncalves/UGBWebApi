@@ -30,6 +30,9 @@
     <Compile Update="UserControlCadastroUsuarios.xaml.cs">
       <DependentUpon>UserControlCadastroUsuarios.xaml</DependentUpon>
     </Compile>
+    <Compile Update="UserControlConsultaProduto - Cópia.xaml.cs">
+      <DependentUpon>UserControlConsultaProduto.xaml</DependentUpon>
+    </Compile>
     <Compile Update="UserControlConsultaProduto.xaml.cs">
       <DependentUpon>UserControlConsultaProduto.xaml</DependentUpon>
     </Compile>
@@ -64,6 +67,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlCadastroUsuarios.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlConsultaProducao.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlConsultaProduto.xaml">

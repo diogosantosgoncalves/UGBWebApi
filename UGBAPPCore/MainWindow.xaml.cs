@@ -32,12 +32,22 @@ namespace UGBAPPCore
             var menuRegister = new List<SubItem>();
             menuRegister.Add(new SubItem("Cadastro", new UserControlCadastroUsuarios()));
             menuRegister.Add(new SubItem("Consulta", new UserControlConsultaUsuario()));
-            var item6 = new ItemMenu("Usuários", menuRegister, PackIconKind.Register);
+            var TelaUsuario = new ItemMenu("Usuários", menuRegister, PackIconKind.Register);
 
             var menuSchedule = new List<SubItem>();
             menuSchedule.Add(new SubItem("Cadastro", new UserControlCadastroProdutos()));
             menuSchedule.Add(new SubItem("Consulta", new UserControlConsultaProduto()));
-            var item1 = new ItemMenu("Produtos", menuSchedule, PackIconKind.Factory);
+            var TelaProduto = new ItemMenu("Produtos", menuSchedule, PackIconKind.Factory);
+
+            var menuExpenses = new List<SubItem>();
+            menuExpenses.Add(new SubItem("Cadastro", new UserControlCadastroTurnos()));
+            menuExpenses.Add(new SubItem("Consulta", new UserControlConsultaTurno()));
+            var TelaTurno = new ItemMenu("Turno", menuExpenses, PackIconKind.Schedule);
+
+            var menuFinancial = new List<SubItem>();
+            menuFinancial.Add(new SubItem("Cadastro", new UserControlCadastroSetor()));
+            menuFinancial.Add(new SubItem("Consulta", new UserControlConsultaSetor()));
+            var TelaSetor = new ItemMenu("Setor", menuFinancial, PackIconKind.AccountGroup);
 
             var menuReports = new List<SubItem>();
             menuReports.Add(new SubItem("Customers"));
@@ -45,22 +55,27 @@ namespace UGBAPPCore
             menuReports.Add(new SubItem("Products"));
             menuReports.Add(new SubItem("Stock"));
             menuReports.Add(new SubItem("Sales"));
-            var item2 = new ItemMenu("Relatórios", menuReports, PackIconKind.FileReport);
+            var TelaRelatorio = new ItemMenu("Relatórios", menuReports, PackIconKind.FileReport);
 
-            var menuExpenses = new List<SubItem>();
-            menuExpenses.Add(new SubItem("Cadastro", new UserControlCadastroTurnos()));
-            menuExpenses.Add(new SubItem("Consulta", new UserControlConsultaTurno()));
-            var item3 = new ItemMenu("Turno", menuExpenses, PackIconKind.Schedule);
+            var menuProducao = new List<SubItem>();
+            menuProducao.Add(new SubItem("Consulta", new UserControlConsultaUsuario()));
+            var TelaProducao = new ItemMenu("Produções", menuProducao, PackIconKind.Register);
 
-            var menuFinancial = new List<SubItem>();
-            menuFinancial.Add(new SubItem("Cadastro", new UserControlCadastroSetor()));
-            menuFinancial.Add(new SubItem("Consulta", new UserControlConsultaSetor()));
-            var item4 = new ItemMenu("Setor", menuFinancial, PackIconKind.AccountGroup);
+            var menuParada = new List<SubItem>();
+            menuParada.Add(new SubItem("Consulta", new UserControlConsultaUsuario()));
+            var TelaParada = new ItemMenu("Paradas", menuParada, PackIconKind.Register);
 
-            Menu.Children.Add(new UserControlMenuItem(item6, this));
-            Menu.Children.Add(new UserControlMenuItem(item1, this));
-            Menu.Children.Add(new UserControlMenuItem(item3, this));
-            Menu.Children.Add(new UserControlMenuItem(item4, this));
+            var menuPerdas = new List<SubItem>();
+            menuPerdas.Add(new SubItem("Consulta", new UserControlConsultaUsuario()));
+            var TelaPerdas = new ItemMenu("Perdas", menuPerdas, PackIconKind.Register);
+
+            Menu.Children.Add(new UserControlMenuItem(TelaUsuario, this));
+            Menu.Children.Add(new UserControlMenuItem(TelaProduto, this));
+            Menu.Children.Add(new UserControlMenuItem(TelaTurno, this));
+            Menu.Children.Add(new UserControlMenuItem(TelaSetor, this));
+            Menu.Children.Add(new UserControlMenuItem(TelaProducao, this));
+            Menu.Children.Add(new UserControlMenuItem(TelaParada, this));
+            Menu.Children.Add(new UserControlMenuItem(TelaPerdas, this));
             //Menu.Children.Add(new UserControlMenuItem(item2, this));
         }
 
