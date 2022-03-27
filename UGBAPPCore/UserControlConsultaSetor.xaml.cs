@@ -37,15 +37,15 @@ namespace APPTCCUGB
         {
             buscaSetor = txtSetor.Text;
             AppDbContext dbSqlServer = new AppDbContext();
-            dtgr_ConsultaSetor.ItemsSource = dbSqlServer.Setores2.Where(i => i.Nome.Contains(buscaSetor)).ToList();
+            dtgr_ConsultaSetor.ItemsSource = dbSqlServer.Setores.Where(i => i.Nome.Contains(buscaSetor)).ToList();
         }
 
 
         private void btEditarSetor_Click(object sender, RoutedEventArgs e)
         {
-            Setores setor = new Setores();
+            Setor setor = new Setor();
             AppDbContext dbSqlServer = new AppDbContext();
-            setor = dbSqlServer.Setores2.FirstOrDefault(i => i.Id.Equals(PegarCodigo()));
+            setor = dbSqlServer.Setores.FirstOrDefault(i => i.Id.Equals(PegarCodigo()));
 
             UserControlMenuItem.testeTela(new UserControlCadastroSetor(setor));
         }

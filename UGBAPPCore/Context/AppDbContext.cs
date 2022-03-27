@@ -11,7 +11,6 @@ namespace APPTCCUGB.Context
         public DbSet<Parada> Paradas { get; set; }
         public DbSet<Perda> Perdas { get; set; }
         public DbSet<Setor> Setores { get; set; }
-        public DbSet<Setores> Setores2 { get; set; }
         public DbSet<Turno> Turnos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Producao> Producoes { get; set; }

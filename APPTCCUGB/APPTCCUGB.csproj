@@ -195,12 +195,6 @@
   <ItemGroup>
     <Resource Include="Assets\logo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DalFramework\DalFramework.csproj">
-      <Project>{D1FA6F07-8D97-43D2-905A-C074F5C5AC82}</Project>
-      <Name>DalFramework</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

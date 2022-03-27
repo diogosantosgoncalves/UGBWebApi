@@ -31,7 +31,7 @@ namespace APPTCCUGB
             clearSetor();
         }
 
-        public UserControlCadastroSetor(Setores setor)
+        public UserControlCadastroSetor(Setor setor)
         {
             InitializeComponent();
             fillSetor(setor);
@@ -44,7 +44,7 @@ namespace APPTCCUGB
                 txtHorasProducao.Text = string.Empty;
         }
 
-        public void fillSetor(Setores setor)
+        public void fillSetor(Setor setor)
         {
             txtCodigo.Text = setor.Id.ToString();
             txtNome.Text = setor.Nome;
@@ -53,19 +53,19 @@ namespace APPTCCUGB
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Setores setores = new Setores();
+            Setor setores = new Setor();
 
             setores.Id = int.Parse(txtCodigo.Text);
             setores.Nome = txtNome.Text;
             setores.HorasProducao = decimal.Parse(txtHorasProducao.Text);
 
-            dbSqlServer.Setores2.Add(setores);
+            dbSqlServer.Setores.Add(setores);
 
             if (setores.Id == 0)
                 dbSqlServer.SaveChanges();
             else
             {
-                dbSqlServer.Setores2.Attach(setores);
+                dbSqlServer.Setores.Attach(setores);
                 dbSqlServer.Update(setores);
                 dbSqlServer.SaveChanges();
                 UserControlMenuItem.testeTela(new UserControlConsultaProduto());
