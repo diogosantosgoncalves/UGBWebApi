@@ -6,7 +6,11 @@ namespace UGBWebApi.Models
     public class Producao
     {
         public int Id { get; set; }
-        public DateTime DataCriacao { get; set; }
+        public DateTime Data { get; set; }
+        public decimal IndiceDisponibilidade { get; set; }
+        public decimal IndicePerfomance { get; set; }
+        public decimal IndiceQualidade { get; set; }
+        public decimal Resultado { get; set; }
         public Produto Produto { get; set; }
         public Setor Setor { get; set; }
         public Turno Turno { get; set; }
@@ -19,7 +23,11 @@ namespace UGBWebApi.Models
         public Producao()
         {
             Id = 0;
-            DataCriacao = new DateTime();
+            Data = new DateTime();
+            IndiceDisponibilidade = 0;
+            IndicePerfomance = 0;
+            IndiceQualidade = 0;
+            Resultado = 0;
             Produto = new Produto();
             Setor = new Setor();
             Turno = new Turno();

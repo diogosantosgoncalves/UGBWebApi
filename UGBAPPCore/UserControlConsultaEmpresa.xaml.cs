@@ -1,4 +1,5 @@
-﻿using APPTCCUGB.Context;
+﻿using APPTCCUGB;
+using APPTCCUGB.Context;
 using APPTCCUGB.Models;
 using System;
 using System.Collections.Generic;
@@ -16,22 +17,19 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UGBAPPCore;
 
-namespace APPTCCUGB
+namespace UGBAPPCore
 {
     /// <summary>
-    /// Interação lógica para UserControlProviders.xam
+    /// Interação lógica para UserControlConsultaEmpresa.xam
     /// </summary>
-    public partial class UserControlConsultaProduto : UserControl
+    public partial class UserControlConsultaEmpresa : UserControl
     {
         AppDbContext dbSqlServer = new AppDbContext();
         string buscaProduto = string.Empty;
-        public UserControlConsultaProduto()
+        public UserControlConsultaEmpresa()
         {
             InitializeComponent();
-            dtgr_ConsultaProduto.Items.Clear();
-            dtgr_ConsultaProduto.Items.Refresh();
         }
-
         private void bt_ConsultarProduto_Click(object sender, RoutedEventArgs e) => consultarProduto();
 
         public void consultarProduto()

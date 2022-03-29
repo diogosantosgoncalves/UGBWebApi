@@ -7,6 +7,7 @@
         public int Caixa { get; set; }
         public decimal Qtde { get; set; }
         public decimal QtdeEstimativa { get; set; }
+        public bool Administrador { get; set; }
 
         public Produto()
         {
@@ -15,6 +16,7 @@
             Caixa = 0;
             Qtde = 0;
             QtdeEstimativa = 0;
+            Administrador = false;
         }
     }
 }

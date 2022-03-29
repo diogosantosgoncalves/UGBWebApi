@@ -41,12 +41,16 @@ namespace APPTCCUGB
         {
             txtCodigo.Text = "0";
             txtNome.Text = string.Empty;
+            txtSenha.Text = string.Empty;
+            chkAdministrador.IsChecked = false;
         }
 
         public void fillUsuario(Usuario usuario)
         {
             txtCodigo.Text = usuario.Id.ToString();
             txtNome.Text = usuario.Nome;
+            txtSenha.Text = usuario.Senha;
+            chkAdministrador.IsChecked = usuario.Administrador;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -55,6 +59,8 @@ namespace APPTCCUGB
 
             usuario.Id = int.Parse(txtCodigo.Text);
             usuario.Nome = txtNome.Text;
+            usuario.Senha = txtSenha.Text;
+            usuario.Administrador = chkAdministrador.IsChecked.Value;
 
             dbSqlServer.Usuarios.Add(usuario);
 

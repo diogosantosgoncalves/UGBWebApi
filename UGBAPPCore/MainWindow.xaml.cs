@@ -29,6 +29,11 @@ namespace UGBAPPCore
         {
             InitializeComponent();
 
+            //var uriSource = new Uri(@"/WpfApplication1;component/Images/logo.png", UriKind.Relative);
+            //imgLogo.Source = new BitmapImage(uriSource);
+
+            //imgLogo.Source = logo;//new BitmapImage(new Uri(@"logo.png"));
+
             var menuRegister = new List<SubItem>();
             menuRegister.Add(new SubItem("Cadastro", new UserControlCadastroUsuarios()));
             menuRegister.Add(new SubItem("Consulta", new UserControlConsultaUsuario()));
@@ -58,25 +63,31 @@ namespace UGBAPPCore
             var TelaRelatorio = new ItemMenu("Relatórios", menuReports, PackIconKind.FileReport);
 
             var menuProducao = new List<SubItem>();
-            menuProducao.Add(new SubItem("Consulta", new UserControlConsultaUsuario()));
+            menuProducao.Add(new SubItem("Consulta", new UserControlConsultaProducoes()));
             var TelaProducao = new ItemMenu("Produções", menuProducao, PackIconKind.Register);
 
             var menuParada = new List<SubItem>();
-            menuParada.Add(new SubItem("Consulta", new UserControlConsultaUsuario()));
+            menuParada.Add(new SubItem("Consulta", new UserControlConsultaParadas()));
             var TelaParada = new ItemMenu("Paradas", menuParada, PackIconKind.Register);
 
             var menuPerdas = new List<SubItem>();
-            menuPerdas.Add(new SubItem("Consulta", new UserControlConsultaUsuario()));
+            menuPerdas.Add(new SubItem("Consulta", new UserControlConsultaPerdas()));
             var TelaPerdas = new ItemMenu("Perdas", menuPerdas, PackIconKind.Register);
 
+            var menuEmpresa = new List<SubItem>();
+            menuEmpresa.Add(new SubItem("Cadastro", new UserControlCadastroEmpresa()));
+            menuEmpresa.Add(new SubItem("Consulta", new UserControlConsultaEmpresa()));
+            var TelaEmpresa = new ItemMenu("Empresas", menuEmpresa, PackIconKind.Register);
+            //Menu.Children.Add(new UserControlMenuItem(item2, this));
+
+            Menu.Children.Add(new UserControlMenuItem(TelaEmpresa, this));
             Menu.Children.Add(new UserControlMenuItem(TelaUsuario, this));
             Menu.Children.Add(new UserControlMenuItem(TelaProduto, this));
             Menu.Children.Add(new UserControlMenuItem(TelaTurno, this));
             Menu.Children.Add(new UserControlMenuItem(TelaSetor, this));
-            Menu.Children.Add(new UserControlMenuItem(TelaProducao, this));
             Menu.Children.Add(new UserControlMenuItem(TelaParada, this));
             Menu.Children.Add(new UserControlMenuItem(TelaPerdas, this));
-            //Menu.Children.Add(new UserControlMenuItem(item2, this));
+            Menu.Children.Add(new UserControlMenuItem(TelaProducao, this));
         }
 
         internal void SwitchScreen(object sender)
