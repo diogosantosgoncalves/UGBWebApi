@@ -72,9 +72,18 @@ namespace APPTCCUGB
             }
 
             txtCodigo.Text = setores.Id.ToString();
-
+            btnNovo.Visibility = Visibility.Visible;
+            btnCadastrar.Visibility = Visibility.Collapsed;
             bStatus.Content = "Cadastrado com sucesso!";
             bStatus.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void btnNovo_Click(object sender, RoutedEventArgs e)
+        {
+            clearSetor();
+            btnNovo.Visibility = Visibility.Hidden;
+            btnCadastrar.Visibility = Visibility.Visible;
+            bStatus.Content = string.Empty;
         }
     }
 }

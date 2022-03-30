@@ -21,15 +21,14 @@
         </Grid.ColumnDefinitions>
         <Label Content="Consulta de Empresas" Grid.ColumnSpan="3"
             Grid.Row="0" Grid.Column="0" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center"/>
-        <Label FontWeight="Black" Name="lb_nomeUsuario" FontSize="20" Content="Nome da Empresa:" Grid.Row="2" VerticalAlignment="Center"/>
-        <TextBox Margin="10" FontSize="18" Name="txt_nomeUsuario" Grid.Row="2" Grid.Column="1" />
-        <Button Name="bt_ConsultarProduto" Content="Consultar"  Grid.Row="2" Grid.Column="2" Cursor="Hand" Click="bt_ConsultarProduto_Click"/>
+        <Label FontWeight="Black" Name="lb_nomeEmpresa" FontSize="20" Content="Nome da Empresa:" Grid.Row="2" VerticalAlignment="Center"/>
+        <TextBox Margin="10" FontSize="18" Name="txt_nomeEmpresa" Grid.Row="2" Grid.Column="1" />
+        <Button Name="bt_ConsultarEmpresa" Content="Consultar"  Grid.Row="2" Grid.Column="2" Cursor="Hand" Click="bt_ConsultarEmpresa_Click"/>
 
-        <DataGrid MaxWidth="1000" Width="auto" MaxHeight="350" IsReadOnly="True" Name="dtgr_ConsultaProduto" AlternationCount="2" AlternatingRowBackground="LightBlue" Grid.Row="3" Grid.ColumnSpan="3" AutoGenerateColumns="False">
+        <DataGrid MaxWidth="1000" Width="auto" MaxHeight="350" IsReadOnly="True" Name="dtgr_ConsultaEmpresa" AlternationCount="2" AlternatingRowBackground="LightBlue" Grid.Row="3" Grid.ColumnSpan="3" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Foreground="Red" Width="100" Header="Código"  Binding="{Binding Id}"/>
                 <DataGridTextColumn  Width="550" Header="Nome" Binding="{Binding Nome}" FontFamily="Arial" FontStyle="Oblique"/>
-                <DataGridTextColumn  Width="150" Header="Qtde Estimativa" Binding="{Binding QtdeEstimativa}" FontFamily="Arial" FontStyle="Oblique"/>
                 <DataGridTemplateColumn Width="100" Header="" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate >
@@ -39,7 +38,7 @@
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
                                     Content="Editar"                                
-                                    IsEnabled="True" BorderBrush="Orange" Background="Orange" Click="btEditarProduto_Click">
+                                    IsEnabled="True" BorderBrush="Orange" Background="Orange" Click="btEditarEmpresa_Click">
                                 </Button>
                             </StackPanel>
                         </DataTemplate>
@@ -54,7 +53,7 @@
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
                                     Content="Excluir"                                
-                                    IsEnabled="True" BorderBrush="Red" Background="Red" Click="btExcluirProduto_Click">
+                                    IsEnabled="True" BorderBrush="Red" Background="Red" Click="btExcluirEmpresa_Click">
                                 </Button>
                             </StackPanel>
                         </DataTemplate>

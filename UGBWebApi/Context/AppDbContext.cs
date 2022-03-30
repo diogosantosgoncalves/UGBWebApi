@@ -12,6 +12,7 @@ namespace UGBWebApi.Context
         public DbSet<Turno> Turnos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Producao> Producoes { get; set; }
+        public DbSet<Empresa> Empresas { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

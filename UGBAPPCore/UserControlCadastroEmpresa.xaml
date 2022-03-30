@@ -46,17 +46,10 @@
                 <Label Content="Nome:" VerticalAlignment="Center" FontWeight="Black" FontSize="15"/>
                 <TextBox x:Name="txtNome" Template="{StaticResource TextBoxBaseControlTemplate}" Margin="17,5,10,0" Width="450" BorderBrush="Black" BorderThickness="0.8"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,20,0,0">
-                <Label Content="Qtde Estimativa:" VerticalAlignment="Center" FontWeight="Black" FontSize="15"/>
-                <TextBox x:Name="txtQtdeEstimativa" Template="{StaticResource TextBoxBaseControlTemplate}" Margin="17,5,10,0" Width="100" BorderBrush="Black" BorderThickness="0.8"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,20,0,0">
-                <Label Content="Unidade:" VerticalAlignment="Center" FontWeight="Black" FontSize="15"/>
-                <TextBox x:Name="txtUnidade" Template="{StaticResource TextBoxBaseControlTemplate}" Margin="17,5,10,0" Width="100" BorderBrush="Black" BorderThickness="0.8"/>
-            </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="2" HorizontalAlignment="Left" Margin="15,0,0,0">
-            <Button Content="Cadastrar" Click="Button_Click" Cursor="Hand"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="15,0,0,0">
+            <Button Content="Cadastrar" x:Name="btnCadastrar" Click="Button_Click" Cursor="Hand"/>
+            <Button Content="Novo" x:Name="btnNovo" Click="btnNovo_Click" Visibility="Hidden" Cursor="Hand"/>
         </StackPanel>
         <Label Name="bStatus" Grid.Row="3" Visibility="Hidden" Foreground="Red"/>
     </Grid>

@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using APPTCCUGB;
+using APPTCCUGB.Context;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using APPTCCUGB;
-using APPTCCUGB.Context;
-using APPTCCUGB.Models;
+using UGBAPPCore.Models;
 
 namespace UGBAPPCore
 {
@@ -29,56 +17,58 @@ namespace UGBAPPCore
             InitializeComponent();
         }
 
-        public void clearProduto()
+        public UserControlCadastroEmpresa(Empresa empresa)
+        {
+            InitializeComponent();
+            fillEmpresa(empresa);
+        }
+
+        public void fillEmpresa(Empresa empresa)
+        {
+            txtCodigo.Text = empresa.Id.ToString();
+            txtNome.Text = empresa.Nome;
+        }
+
+        public void clearEmpresa()
         {
             txtCodigo.Text = "0";
-            txtNome.Text =
-                txtQtdeEstimativa.Text =
-                txtUnidade.Text = string.Empty;
-        }
-
-        public void fillProduto(Produto produto)
-        {
-            txtCodigo.Text = produto.Id.ToString();
-            txtNome.Text = produto.Nome;
-            txtQtdeEstimativa.Text = produto.QtdeEstimativa.ToString();
-            txtUnidade.Text = produto.Qtde.ToString();
-        }
-
-
-
-        public static void Teste()
-        {
+            txtNome.Text = string.Empty;
         }
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Produto produto = new Produto();
+            Empresa empresa = new Empresa();
 
-            produto.Id = int.Parse(txtCodigo.Text);
+            empresa.Id = int.Parse(txtCodigo.Text);
+            empresa.Nome = txtNome.Text;
 
-            produto.Nome = txtNome.Text;
-            //produto.QtdeEstimativa = int.Parse(txtQtdeEstimativa.Text);
+            dbSqlServer.Empresas.Add(empresa);
 
-            dbSqlServer.Produtos.Add(produto);
-
-            if (produto.Id == 0)
+            if (empresa.Id == 0)
             {
                 dbSqlServer.SaveChanges();
             }
             else
             {
-                dbSqlServer.Produtos.Attach(produto);
-                dbSqlServer.Update(produto);
+                dbSqlServer.Empresas.Attach(empresa);
+                dbSqlServer.Update(empresa);
                 dbSqlServer.SaveChanges();
-                UserControlMenuItem.testeTela(new UserControlConsultaProduto());
-                // fill Produto
+                UserControlMenuItem.testeTela(new UserControlConsultaEmpresa());
             }
 
-            txtCodigo.Text = produto.Id.ToString();
-
+            txtCodigo.Text = empresa.Id.ToString();
+            btnNovo.Visibility = Visibility.Visible;
+            btnCadastrar.Visibility = Visibility.Collapsed;
             bStatus.Content = "Cadastrado com sucesso!";
             bStatus.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void btnNovo_Click(object sender, RoutedEventArgs e)
+        {
+            clearEmpresa();
+            btnNovo.Visibility = Visibility.Hidden;
+            btnCadastrar.Visibility = Visibility.Visible;
+            bStatus.Content = string.Empty;
         }
     }
 }

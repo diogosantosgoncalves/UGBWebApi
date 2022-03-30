@@ -1,6 +1,7 @@
 ﻿using APPTCCUGB.Context;
 using APPTCCUGB.Models;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace APPTCCUGB
@@ -72,9 +73,18 @@ namespace APPTCCUGB
             }
 
             txtCodigo.Text = produto.Id.ToString();
-
+            btnNovo.Visibility = Visibility.Visible;
+            btnCadastrar.Visibility = Visibility.Collapsed;
             bStatus.Content = "Cadastrado com sucesso!";
             bStatus.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void btnNovo_Click(object sender, RoutedEventArgs e)
+        {
+            clearProduto();
+            btnNovo.Visibility = Visibility.Hidden;
+            btnCadastrar.Visibility = Visibility.Visible;
+            bStatus.Content = string.Empty;
         }
     }
 }

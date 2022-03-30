@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UGBAPPCore;
+using UGBAPPCore.Models;
 
 namespace UGBAPPCore
 {
@@ -25,47 +26,47 @@ namespace UGBAPPCore
     public partial class UserControlConsultaEmpresa : UserControl
     {
         AppDbContext dbSqlServer = new AppDbContext();
-        string buscaProduto = string.Empty;
+        string buscaEmpresa = string.Empty;
         public UserControlConsultaEmpresa()
         {
             InitializeComponent();
         }
-        private void bt_ConsultarProduto_Click(object sender, RoutedEventArgs e) => consultarProduto();
+        private void bt_ConsultarEmpresa_Click(object sender, RoutedEventArgs e) => consultarEmpresa();
 
-        public void consultarProduto()
+        public void consultarEmpresa()
         {
-            buscaProduto = txt_nomeUsuario.Text;
+            buscaEmpresa = txt_nomeEmpresa.Text;
             AppDbContext dbSqlServer = new AppDbContext();
-            dtgr_ConsultaProduto.ItemsSource = dbSqlServer.Produtos.Where(i => i.Nome.Contains(buscaProduto)).ToList();
+            dtgr_ConsultaEmpresa.ItemsSource = dbSqlServer.Empresas.Where(i => i.Nome.Contains(buscaEmpresa)).ToList();
         }
 
-        private void btEditarProduto_Click(object sender, RoutedEventArgs e)
+        private void btEditarEmpresa_Click(object sender, RoutedEventArgs e)
         {
-            Produto produto = new Produto();
+            Empresa empresa = new Empresa();
             AppDbContext dbSqlServer = new AppDbContext();
-            produto = dbSqlServer.Produtos.FirstOrDefault(i => i.Id.Equals(PegarCodigo()));
+            empresa = dbSqlServer.Empresas.FirstOrDefault(i => i.Id.Equals(PegarCodigo()));
 
-            UserControlMenuItem.testeTela(new UserControlCadastroProdutos(produto));
+            UserControlMenuItem.testeTela(new UserControlCadastroEmpresa(empresa));
         }
 
 
         public int PegarCodigo()
         {
-            var selectedItem = dtgr_ConsultaProduto.SelectedItem.ToString();
-            Type t = dtgr_ConsultaProduto.SelectedItem.GetType();
+            var selectedItem = dtgr_ConsultaEmpresa.SelectedItem.ToString();
+            Type t = dtgr_ConsultaEmpresa.SelectedItem.GetType();
             System.Reflection.PropertyInfo[] props = t.GetProperties();
-            string propertyValue = props[0].GetValue(dtgr_ConsultaProduto.SelectedItem, null).ToString();
+            string propertyValue = props[0].GetValue(dtgr_ConsultaEmpresa.SelectedItem, null).ToString();
             return int.Parse(propertyValue);
         }
 
-        private void btExcluirProduto_Click(object sender, RoutedEventArgs e)
+        private void btExcluirEmpresa_Click(object sender, RoutedEventArgs e)
         {
-            Produto produto = (Produto)dtgr_ConsultaProduto.SelectedItem;
-            dbSqlServer.Produtos.Attach(produto);
-            dbSqlServer.Produtos.Remove(produto);
+            Empresa empresa = (Empresa)dtgr_ConsultaEmpresa.SelectedItem;
+            dbSqlServer.Empresas.Attach(empresa);
+            dbSqlServer.Empresas.Remove(empresa);
             dbSqlServer.SaveChanges();
 
-            consultarProduto();
+            consultarEmpresa();
         }
     }
 }
