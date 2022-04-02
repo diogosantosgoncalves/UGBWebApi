@@ -30,8 +30,8 @@
                 <PasswordBox Margin="0,10" materialDesign:HintAssist.Hint="SENHA" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
             </StackPanel>
         </Grid>
-        <Button Width="150" HorizontalAlignment="Center" Click="Button_Click" VerticalAlignment="Bottom" Margin="0,65" Content="LOGIN"/>
+        <Button Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,65" Content="LOGIN"/>
         <TextBlock Text="ESQUECEU A SENHA?" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="30" Foreground="Gray" Cursor="Hand"/>
-        <Image Source="Assets/home.png" Width="100" Height="100" VerticalAlignment="Top" Margin="30"/>
+        <Image Source="/home.png" Width="100" Height="100" VerticalAlignment="Top" Margin="30"/>
     </Grid>
 </Window>

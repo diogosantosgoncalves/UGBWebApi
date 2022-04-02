@@ -1,4 +1,5 @@
 ﻿using APPTCCUGB;
+using APPTCCUGB.Models;
 using APPTCCUGB.ViewModel;
 using DalCore;
 using DalStandard;
@@ -17,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UGBAPPCore.Models;
 
 namespace UGBAPPCore
 {
@@ -28,6 +30,9 @@ namespace UGBAPPCore
         public MainWindow()
         {
             InitializeComponent();
+
+            //lbNomeEmpresa.Content = empresa.Nome;
+            //lbNomeUsuario.Content = usuario.Nome;
 
             //var uriSource = new Uri(@"/WpfApplication1;component/Images/logo.png", UriKind.Relative);
             //imgLogo.Source = new BitmapImage(uriSource);

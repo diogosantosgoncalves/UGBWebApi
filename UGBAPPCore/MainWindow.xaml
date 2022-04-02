@@ -19,8 +19,8 @@
 
         <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
             <Grid>
-                <Label Content="VR system LTDA ME" Foreground="Wheat" FontStyle="Italic" Background="{StaticResource PrimaryHueMidBrush}" FontWeight="ExtraBold" FontSize="20"  FontStretch="Expanded" VerticalAlignment="Center"/>
-                <Label Content="Diogo dos Santos Gonçalves" Foreground="White" Background="{StaticResource PrimaryHueMidBrush}" FontWeight="ExtraBold" FontSize="15"  FontStretch="Expanded" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,40,0"/>
+                <Label x:Name="lbNomeEmpresa" Content="VR system LTDA ME" Foreground="Wheat" FontStyle="Italic" Background="{StaticResource PrimaryHueMidBrush}" FontWeight="ExtraBold" FontSize="20"  FontStretch="Expanded" VerticalAlignment="Center"/>
+                <Label x:Name="lbNomeUsuario" Content="Diogo dos Santos Gonçalves" Foreground="White" Background="{StaticResource PrimaryHueMidBrush}" FontWeight="ExtraBold" FontSize="15"  FontStretch="Expanded" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,40,0"/>
                 <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" HorizontalAlignment="Right" Margin="10"/>
             </Grid>
         </materialDesign:ColorZone>

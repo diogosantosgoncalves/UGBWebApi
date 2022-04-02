@@ -17,6 +17,8 @@ namespace UGBWebApi.Models
             CodigoProducao = 0;
             Observacao = string.Empty;
             Tempo = 0;
+            HoraInicial = new TimeSpan();
+            HoraFinal = new TimeSpan();
         }
     }
 }

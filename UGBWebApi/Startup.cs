@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
 using UGBWebApi.Context;
 
 namespace UGBWebApi
@@ -29,6 +30,8 @@ namespace UGBWebApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UGBWebApi", Version = "v1" });
             });
             services.AddDbContext<AppDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ServerConnection")));
+
+            services.AddMvc().AddNewtonsoftJson();
             //services.Configure<IISOptions>(options =>
             //{
             //    options.AutomaticAuthentication = true;
