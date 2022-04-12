@@ -15,7 +15,7 @@
             Nome = string.Empty;
             Caixa = 0;
             Qtde = 0;
-            QtdeEstimativa = 0;
+            QtdeEstimativa = 1;
             Administrador = false;
         }
     }

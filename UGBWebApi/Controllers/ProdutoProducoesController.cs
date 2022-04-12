@@ -25,15 +25,26 @@ namespace UGBWebApi.Controllers
             return Ok();
         }
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("Id,NomeProduto,Qtde,QtdeEstimada,Unidade")] ProdutoProducao produtoProducao)
+        public async Task<IActionResult> Create([Bind("Id,NomeProduto,Qtde,QtdeEstimada,Unidade")] List<ProdutoProducao> listProdutoProducao)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(produtoProducao);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    foreach (ProdutoProducao produtoProducao in listProdutoProducao)
+                        _context.Add(produtoProducao);
+                    //    _context.add(produtoProducao);
+                    //_context.AddRange<ProdutoProducao>(listProdutoProducao);
+                    //listProdutoProducao.ToList().ForEach(a => _context.ProdutoProducoes.Add(a));
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return Ok();
             }
-            return Ok(produtoProducao);
+            catch(Exception ex)
+            {
+                return Ok();
+            }
         }
     }
 }

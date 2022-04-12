@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UGBWebApi.Context;
 
 namespace UGBWebApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220412023130_AtualizarTabelaProducoes")]
+    partial class AtualizarTabelaProducoes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -149,8 +151,14 @@ namespace UGBWebApi.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<Guid>("Ide")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("NomeProduto")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProdutoId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("Qtde")
                         .HasColumnType("decimal(18,2)");
@@ -162,6 +170,8 @@ namespace UGBWebApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProdutoId");
 
                     b.ToTable("ProdutoProducoes");
                 });
@@ -221,6 +231,15 @@ namespace UGBWebApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("UGBWebApi.Models.ProdutoProducao", b =>
+                {
+                    b.HasOne("UGBWebApi.Models.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId");
+
+                    b.Navigation("Produto");
                 });
 #pragma warning restore 612, 618
         }
