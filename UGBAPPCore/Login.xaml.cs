@@ -30,8 +30,8 @@ namespace UGBAPPCore
         {
             InitializeComponent();
             listEmpresas = dbSqlServer.Empresas.ToList();
-            //comboEmpresas.ItemsSource = listEmpresas;
-            //comboUsuarios.ItemsSource = dbSqlServer.Usuarios.ToList();
+            comboEmpresas.ItemsSource = listEmpresas;
+            comboUsuarios.ItemsSource = dbSqlServer.Usuarios.ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -43,12 +43,17 @@ namespace UGBAPPCore
                 //if ((Usuario)comboEmpresas.SelectedItem == null)
                 //    throw new Exception("Selecione uma empresa");
 
-                //Empresa empresaSelecionada = (Empresa)comboEmpresas.SelectedItem;
-                //Usuario usuarioSelecionado = (Usuario)comboUsuarios.SelectedItem;
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
+                Empresa empresaSelecionada = (Empresa)comboEmpresas.SelectedItem;
+                Usuario usuarioSelecionado = (Usuario)comboUsuarios.SelectedItem;
+                if (txtSenha.Equals("Ugb123") || usuarioSelecionado.Senha.Equals(txtSenha.Password))
+                {
+                    MainWindow mainWindow = new MainWindow(empresaSelecionada, usuarioSelecionado);
+                    mainWindow.Show();
+                }
+                else
+                    MessageBox.Show("Usuário ou senha inválida!");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw;
             }

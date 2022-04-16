@@ -27,12 +27,12 @@ namespace UGBAPPCore
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(Empresa empresa = null, Usuario usuario = null)
         {
             InitializeComponent();
 
-            //lbNomeEmpresa.Content = empresa.Nome;
-            //lbNomeUsuario.Content = usuario.Nome;
+            lbNomeEmpresa.Content = empresa?.Nome;
+            lbNomeUsuario.Content = usuario?.Nome;
 
             //var uriSource = new Uri(@"/WpfApplication1;component/Images/logo.png", UriKind.Relative);
             //imgLogo.Source = new BitmapImage(uriSource);

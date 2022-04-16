@@ -24,21 +24,21 @@ namespace APPTCCUGB
     public partial class UserControlConsultaProducoes : UserControl
     {
         AppDbContext dbSqlServer = new AppDbContext();
-        string buscaProduto = string.Empty;
+        string numeroSequencia = string.Empty;
         public UserControlConsultaProducoes()
         {
             InitializeComponent();
-            dtgr_ConsultaProduto.Items.Clear();
-            dtgr_ConsultaProduto.Items.Refresh();
+            dtgr_ConsultaProducoes.Items.Clear();
+            dtgr_ConsultaProducoes.Items.Refresh();
         }
 
-        private void bt_ConsultarProduto_Click(object sender, RoutedEventArgs e) => consultarProduto();
+        private void bt_ConsultarProducoes_Click(object sender, RoutedEventArgs e) => consultarProducoes();
 
-        public void consultarProduto()
+        public void consultarProducoes()
         {
-            buscaProduto = txt_nomeUsuario.Text;
+            numeroSequencia = txt_numeroSequencia.Text;
             AppDbContext dbSqlServer = new AppDbContext();
-            dtgr_ConsultaProduto.ItemsSource = dbSqlServer.Produtos.Where(i => i.Nome.Contains(buscaProduto)).ToList();
+            dtgr_ConsultaProducoes.ItemsSource = dbSqlServer.Producoes.Where(i => i.Id.ToString().Contains(numeroSequencia)).ToList();
         }
 
         private void btEditarProduto_Click(object sender, RoutedEventArgs e)
@@ -53,21 +53,21 @@ namespace APPTCCUGB
 
         public int PegarCodigo()
         {
-            var selectedItem = dtgr_ConsultaProduto.SelectedItem.ToString();
-            Type t = dtgr_ConsultaProduto.SelectedItem.GetType();
+            var selectedItem = dtgr_ConsultaProducoes.SelectedItem.ToString();
+            Type t = dtgr_ConsultaProducoes.SelectedItem.GetType();
             System.Reflection.PropertyInfo[] props = t.GetProperties();
-            string propertyValue = props[0].GetValue(dtgr_ConsultaProduto.SelectedItem, null).ToString();
+            string propertyValue = props[0].GetValue(dtgr_ConsultaProducoes.SelectedItem, null).ToString();
             return int.Parse(propertyValue);
         }
 
         private void btExcluirProduto_Click(object sender, RoutedEventArgs e)
         {
-            Produto produto = (Produto)dtgr_ConsultaProduto.SelectedItem;
-            dbSqlServer.Produtos.Attach(produto);
-            dbSqlServer.Produtos.Remove(produto);
+            Producao producao = (Producao)dtgr_ConsultaProducoes.SelectedItem;
+            dbSqlServer.Producoes.Attach(producao);
+            dbSqlServer.Producoes.Remove(producao);
             dbSqlServer.SaveChanges();
 
-            consultarProduto();
+            consultarProducoes();
         }
     }
 }

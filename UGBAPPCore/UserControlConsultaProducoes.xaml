@@ -21,18 +21,18 @@
         </Grid.ColumnDefinitions>
         <Label Content="Consulta de Produções" Grid.ColumnSpan="3"
             Grid.Row="0" Grid.Column="0" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center"/>
-        <Label FontWeight="Black" Name="lb_nomeUsuario" FontSize="20" Content="Número da sequência:" Grid.Row="2" VerticalAlignment="Center"/>
-        <TextBox Margin="10" FontSize="18" Name="txt_nomeUsuario" Grid.Row="2" Grid.Column="1" />
-        <Button Name="bt_ConsultarProduto" Content="Consultar"  Grid.Row="2" Grid.Column="2" Cursor="Hand"/>
+        <Label FontWeight="Black" Name="lb_numeroSequencia" FontSize="20" Content="Número da sequência:" Grid.Row="2" VerticalAlignment="Center"/>
+        <TextBox Margin="10" FontSize="18" Name="txt_numeroSequencia" Grid.Row="2" Grid.Column="1" />
+        <Button Name="bt_ConsultarProducoes" Content="Consultar" Click="bt_ConsultarProducoes_Click" Grid.Row="2" Grid.Column="2" Cursor="Hand"/>
 
-        <DataGrid MaxWidth="1000" Width="auto" MaxHeight="350" IsReadOnly="True" Name="dtgr_ConsultaProduto" AlternationCount="2" AlternatingRowBackground="LightBlue" Grid.Row="3" Grid.ColumnSpan="3" AutoGenerateColumns="False">
+        <DataGrid MaxWidth="1000" Width="auto" MaxHeight="350" IsReadOnly="True" Name="dtgr_ConsultaProducoes" AlternationCount="2" AlternatingRowBackground="LightBlue" Grid.Row="3" Grid.ColumnSpan="3" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Foreground="Red" Width="100" Header="Código"  Binding="{Binding Id}"/>
-                <DataGridTextColumn Width="200" Header="% de Disponibilidade" Binding="{Binding QtdeEstimativa}" FontFamily="Arial" FontStyle="Oblique"/>
-                <DataGridTextColumn Width="200" Header="% de Performance" Binding="{Binding QtdeEstimativa}" FontFamily="Arial" FontStyle="Oblique"/>
-                <DataGridTextColumn Width="200" Header="% de Qualidade" Binding="{Binding QtdeEstimativa}" FontFamily="Arial" FontStyle="Oblique"/>
-                <DataGridTextColumn Width="200" Header="Resultado" Binding="{Binding QtdeEstimativa}" FontFamily="Arial" FontStyle="Oblique"/>
-                <DataGridTextColumn Width="200" Header="Data" Binding="{Binding QtdeEstimativa}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn Width="175" Header="% de Disponibilidade" Binding="{Binding IndiceDisponibilidade}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn Width="175" Header="% de Perfomance" Binding="{Binding IndicePerfomance}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn Width="175" Header="% de Qualidade" Binding="{Binding IndiceQualidade}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn Width="175" Header="Resultado" Binding="{Binding Resultado}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn Width="175" Header="Data" Binding="{Binding Data, StringFormat={}{0:dd/MM/yyyy}}" FontFamily="Arial" FontStyle="Oblique"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

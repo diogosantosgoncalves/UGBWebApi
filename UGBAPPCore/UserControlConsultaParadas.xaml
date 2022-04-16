@@ -29,7 +29,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Foreground="Red" Width="100" Header="Código"  Binding="{Binding Id}"/>
                 <DataGridTextColumn Foreground="Red" Width="170" Header="Código da Produção"  Binding="{Binding Id}"/>
-                <DataGridTextColumn  Width="300" Header="Observação" Binding="{Binding Nome}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn  Width="250" Header="Observação" Binding="{Binding Nome}" FontFamily="Arial" FontStyle="Oblique"/>
                 <DataGridTextColumn  Width="150" Header="Tempo Inicial" Binding="{Binding QtdeEstimativa}" FontFamily="Arial" FontStyle="Oblique"/>
                 <DataGridTextColumn  Width="150" Header="Tempo Final" Binding="{Binding QtdeEstimativa}" FontFamily="Arial" FontStyle="Oblique"/>
                 <DataGridTextColumn  Width="150" Header="Diferença" Binding="{Binding QtdeEstimativa}" FontFamily="Arial" FontStyle="Oblique"/>
