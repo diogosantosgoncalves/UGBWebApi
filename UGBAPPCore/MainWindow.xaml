@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:UGBAPPCore" 
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
+        Title="Let's Go Production" Height="450" Width="800" WindowState="Maximized"
+        Icon="/logotipougbletsgo.jpg">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -17,20 +18,20 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+        <materialDesign:ColorZone Mode="PrimaryMid" Background="#00579c" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
             <Grid>
-                <Label x:Name="lbNomeEmpresa" Content="VR system LTDA ME" Foreground="Wheat" FontStyle="Italic" Background="{StaticResource PrimaryHueMidBrush}" FontWeight="ExtraBold" FontSize="20"  FontStretch="Expanded" VerticalAlignment="Center"/>
-                <Label x:Name="lbNomeUsuario" Content="Diogo dos Santos Gonçalves" Foreground="White" Background="{StaticResource PrimaryHueMidBrush}" FontWeight="ExtraBold" FontSize="15"  FontStretch="Expanded" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,40,0"/>
+                <Label x:Name="lbNomeEmpresa" Content="VR system LTDA ME" Foreground="White" FontStyle="Italic" Background="#00579c" FontWeight="ExtraBold" FontSize="20"  FontStretch="Expanded" VerticalAlignment="Center"/>
+                <Label x:Name="lbNomeUsuario" Content="Diogo dos Santos Gonçalves" Foreground="White" Background="#00579c" FontWeight="ExtraBold" FontSize="15"  FontStretch="Expanded" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,40,0"/>
                 <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" HorizontalAlignment="Right" Margin="10"/>
             </Grid>
         </materialDesign:ColorZone>
-        <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="{StaticResource PrimaryHueMidBrush}">
+        <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="#00579c">
             <Grid.RowDefinitions>
                 <RowDefinition Height="120"/>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Background="GhostWhite">
-                <Image x:Name="imgLogo" Source="/logo.png"/>
+                <Image x:Name="imgLogo" Source="/logotipougbletsgo.jpg" Stretch="Fill"/>
             </Grid>
             <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">
                 <StackPanel x:Name="Menu" Margin="10"/>

@@ -4,10 +4,12 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>logotipougbletsgo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="logo.png" />
+    <None Remove="logotipougbletsgo.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +25,7 @@
 
   <ItemGroup>
     <Resource Include="logo.png" />
+    <Resource Include="logotipougbletsgo.jpg" />
   </ItemGroup>
 
   <ItemGroup>
