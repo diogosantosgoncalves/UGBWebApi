@@ -26,15 +26,16 @@ namespace UGBWebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Caixa,Qtde")] Perda perda)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Caixa,Qtde")] List<Perda> listPerda)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(perda);
+                foreach (Perda perda in listPerda)
+                    _context.Add(perda);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return Ok(perda);
+            return Ok();
         }
     }
 }

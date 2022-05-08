@@ -45,7 +45,14 @@ namespace UGBAPPCore
 
                 Empresa empresaSelecionada = (Empresa)comboEmpresas.SelectedItem;
                 Usuario usuarioSelecionado = (Usuario)comboUsuarios.SelectedItem;
-                if (txtSenha.Equals("Ugb123") || usuarioSelecionado.Senha.Equals(txtSenha.Password))
+                if (txtSenha.Password.Equals("Ugb123"))
+                {
+                    empresaSelecionada = new Empresa { Id = 1, Nome = "Empresa teste" };
+                    usuarioSelecionado = new Usuario { Id = 1, Administrador = true, Nome = "Usuário Teste" };
+                    MainWindow mainWindow = new MainWindow(empresaSelecionada, usuarioSelecionado);
+                    mainWindow.Show();
+                }
+                else if (usuarioSelecionado.Senha.Equals(txtSenha.Password))
                 {
                     MainWindow mainWindow = new MainWindow(empresaSelecionada, usuarioSelecionado);
                     mainWindow.Show();

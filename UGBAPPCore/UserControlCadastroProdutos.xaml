@@ -44,7 +44,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,20,0,0">
                 <Label Content="Nome:" VerticalAlignment="Center" FontWeight="Black" FontSize="15"/>
-                <TextBox x:Name="txtNome" Template="{StaticResource TextBoxBaseControlTemplate}" Margin="17,5,10,0" Width="450" BorderBrush="Black" BorderThickness="0.8"/>
+                <TextBox x:Name="txtNome" Template="{StaticResource TextBoxBaseControlTemplate}" Margin="17,5,10,0" Width="450" BorderBrush="Black" BorderThickness="0.8" Cursor="IBeam"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,20,0,0">
                 <Label Content="Qtde Estimativa:" VerticalAlignment="Center" FontWeight="Black" FontSize="15"/>

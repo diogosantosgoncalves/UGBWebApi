@@ -30,7 +30,7 @@ namespace APPTCCUGB.Context
             //    .Build();
 
             //optionsBuilder.UseSqlServer(configuration.GetConnectionString("ServerConnection"));
-            optionsBuilder.UseSqlServer("Password=senha;Persist Security Info=True;User ID=sa;Initial Catalog=TccUGB;Data Source=DESKTOP-K6KF994\\SQL2014");
+            optionsBuilder.UseSqlServer("Password=senha;Persist Security Info=True;User ID=sa;Initial Catalog=TccUGB;Data Source=Localhost\\SQL2014");
         }
 
         private void ConfigureServices(IServiceCollection services)

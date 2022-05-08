@@ -33,9 +33,6 @@ namespace UGBWebApi.Controllers
                 {
                     foreach (ProdutoProducao produtoProducao in listProdutoProducao)
                         _context.Add(produtoProducao);
-                    //    _context.add(produtoProducao);
-                    //_context.AddRange<ProdutoProducao>(listProdutoProducao);
-                    //listProdutoProducao.ToList().ForEach(a => _context.ProdutoProducoes.Add(a));
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }

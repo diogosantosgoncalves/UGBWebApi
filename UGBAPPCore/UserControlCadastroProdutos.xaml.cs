@@ -39,10 +39,8 @@ namespace APPTCCUGB
             txtCodigo.Text = produto.Id.ToString();
             txtNome.Text = produto.Nome;
             txtQtdeEstimativa.Text = produto.QtdeEstimativa.ToString();
-            txtUnidade.Text = produto.Qtde.ToString();
+            txtUnidade.Text = produto.Unidade.ToString();
         }
-
-
 
         public static void Teste()
         {
@@ -55,7 +53,8 @@ namespace APPTCCUGB
             produto.Id = int.Parse(txtCodigo.Text);
 
             produto.Nome = txtNome.Text;
-            //produto.QtdeEstimativa = int.Parse(txtQtdeEstimativa.Text);
+            produto.QtdeEstimativa = decimal.Parse(txtQtdeEstimativa.Text);
+            produto.Unidade = txtUnidade.Text;
 
             dbSqlServer.Produtos.Add(produto);
 

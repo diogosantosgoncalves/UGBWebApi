@@ -72,7 +72,7 @@ namespace UGBWebApi.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Caixa,Qtde")] Produto produto)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Unidade,QtdeEstimativa,Administrador")] Produto produto)
         {
             if (ModelState.IsValid)
             {
