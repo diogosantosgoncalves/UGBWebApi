@@ -27,12 +27,12 @@
 
         <DataGrid MaxWidth="1000" Width="auto" MaxHeight="350" IsReadOnly="True" Name="dtgr_ConsultaProduto" AlternationCount="2" AlternatingRowBackground="LightBlue" Grid.Row="3" Grid.ColumnSpan="3" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Foreground="Red" Width="100" Header="Código"  Binding="{Binding Id}"/>
-                <DataGridTextColumn Foreground="Red" Width="170" Header="Código da Produção"  Binding="{Binding Id}"/>
-                <DataGridTextColumn  Width="250" Header="Observação" Binding="{Binding Nome}" FontFamily="Arial" FontStyle="Oblique"/>
-                <DataGridTextColumn  Width="150" Header="Tempo Inicial" Binding="{Binding QtdeEstimativa}" FontFamily="Arial" FontStyle="Oblique"/>
-                <DataGridTextColumn  Width="150" Header="Tempo Final" Binding="{Binding QtdeEstimativa}" FontFamily="Arial" FontStyle="Oblique"/>
-                <DataGridTextColumn  Width="150" Header="Diferença" Binding="{Binding QtdeEstimativa}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn Foreground="Red" Width="80" Header="Código"  Binding="{Binding Id}"/>
+                <DataGridTextColumn Foreground="Red" Width="170" Header="Código da Produção"  Binding="{Binding CodigoProducao}"/>
+                <DataGridTextColumn  Width="300" Header="Observação" Binding="{Binding Observacao}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn  Width="150" Header="Tempo Inicial" Binding="{Binding HoraInicial}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn  Width="150" Header="Tempo Final" Binding="{Binding HoraFinal}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn  Width="150" Header="Minutos" Binding="{Binding DiferencaParadaMinutos}" FontFamily="Arial" FontStyle="Oblique"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

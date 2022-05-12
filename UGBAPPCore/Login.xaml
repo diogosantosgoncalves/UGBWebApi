@@ -51,7 +51,6 @@
             </StackPanel>
         </Grid>
         <Button Width="150" HorizontalAlignment="Center" Click="Button_Click" VerticalAlignment="Bottom" Margin="0,65" Content="LOGIN"/>
-        <TextBlock Text="ESQUECEU A SENHA?" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="30" Foreground="Gray" Cursor="Hand"/>
         <Image x:Name="Logotipo" Source="/logotipougbletsgo.jpg" Width="100" Height="100" VerticalAlignment="Top" Margin="10"/>
     </Grid>
 </Window>

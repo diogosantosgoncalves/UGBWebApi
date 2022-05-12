@@ -36,7 +36,7 @@ namespace UGBAPPCore
         {
             buscaProduto = txt_nomeUsuario.Text;
             AppDbContext dbSqlServer = new AppDbContext();
-            dtgr_ConsultaProduto.ItemsSource = dbSqlServer.Produtos.Where(i => i.Nome.Contains(buscaProduto)).ToList();
+            dtgr_ConsultaProduto.ItemsSource = dbSqlServer.Paradas.Where(i => i.Observacao.Contains(buscaProduto)).ToList();
         }
 
         private void btEditarProduto_Click(object sender, RoutedEventArgs e)

@@ -47,7 +47,7 @@ namespace APPTCCUGB
         {
             txtCodigo.Text = turno.Id.ToString();
             txtNome.Text = turno.Nome;
-            txtHorasProducao.Text = turno.Qtde.ToString();
+            txtHorasProducao.Text = turno.HorasProducao.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -56,7 +56,7 @@ namespace APPTCCUGB
 
             turno.Id = int.Parse(txtCodigo.Text);
             turno.Nome = txtNome.Text;
-            turno.Qtde = txtHorasProducao.Text;
+            turno.HorasProducao = decimal.Parse(txtHorasProducao.Text);
 
             dbSqlServer.Turnos.Add(turno);
 

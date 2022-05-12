@@ -40,15 +40,13 @@ namespace APPTCCUGB
         public void clearSetor()
         {
             txtCodigo.Text = "0";
-            txtNome.Text =
-                txtHorasProducao.Text = string.Empty;
+            txtNome.Text = string.Empty;
         }
 
         public void fillSetor(Setor setor)
         {
             txtCodigo.Text = setor.Id.ToString();
             txtNome.Text = setor.Nome;
-            txtHorasProducao.Text = setor.HorasProducao.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -57,7 +55,6 @@ namespace APPTCCUGB
 
             setores.Id = int.Parse(txtCodigo.Text);
             setores.Nome = txtNome.Text;
-            setores.HorasProducao = decimal.Parse(txtHorasProducao.Text);
 
             dbSqlServer.Setores.Add(setores);
 

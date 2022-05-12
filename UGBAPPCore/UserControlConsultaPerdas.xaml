@@ -28,10 +28,9 @@
         <DataGrid MaxWidth="1000" Width="auto" MaxHeight="350" IsReadOnly="True" Name="dtgr_ConsultaProduto" AlternationCount="2" AlternatingRowBackground="LightBlue" Grid.Row="3" Grid.ColumnSpan="3" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Foreground="Red" Width="100" Header="Código"  Binding="{Binding Id}"/>
-                <DataGridTextColumn Foreground="Red" Width="170" Header="Código da Produção"  Binding="{Binding Id}"/>
+                <DataGridTextColumn Foreground="Red" Width="170" Header="Código da Produção"  Binding="{Binding CodigoProducao}"/>
                 <DataGridTextColumn  Width="350" Header="Nome do Produto" Binding="{Binding Nome}" FontFamily="Arial" FontStyle="Oblique"/>
-                <DataGridTextColumn  Width="150" Header="Qtde perdida" Binding="{Binding QtdeEstimativa}" FontFamily="Arial" FontStyle="Oblique"/>
-                <DataGridTextColumn  Width="150" Header="Unidade" Binding="{Binding QtdeEstimativa}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn  Width="150" Header="Qtde perdida" Binding="{Binding Qtde}" FontFamily="Arial" FontStyle="Oblique"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

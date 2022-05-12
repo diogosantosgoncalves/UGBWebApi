@@ -18,5 +18,7 @@ namespace APPTCCUGB.Models
             Observacao = string.Empty;
             Tempo = 0;
         }
+
+        public decimal DiferencaParadaMinutos => Convert.ToDecimal((HoraFinal - HoraInicial).TotalMinutes);
     }
 }
