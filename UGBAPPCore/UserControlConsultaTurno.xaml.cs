@@ -35,6 +35,8 @@ namespace APPTCCUGB
 
         public void consultarTurno()
         {
+             
+            dtgr_ConsultaTurno.ExportToExcel();
             buscaturno = txtUsuario.Text;
             AppDbContext dbSqlServer = new AppDbContext();
             dtgr_ConsultaTurno.ItemsSource = dbSqlServer.Turnos.Where(i => i.Nome.Contains(buscaturno)).ToList();

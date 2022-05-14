@@ -45,7 +45,7 @@ namespace UGBWebApi.Controllers
         //}
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("Id,CodigoProducao,Observacao,Tempo,HoraInicial,HoraFinal")] List<Parada> listParada)
+        public async Task<IActionResult> Create([Bind("Id,CodigoProducao,Observacao,Tempo,HoraInicial,HoraFinal,TipoParada")] List<Parada> listParada)
         {
             if (ModelState.IsValid)
             {

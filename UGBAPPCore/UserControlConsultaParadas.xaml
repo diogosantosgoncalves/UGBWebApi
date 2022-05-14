@@ -27,12 +27,13 @@
 
         <DataGrid MaxWidth="1000" Width="auto" MaxHeight="350" IsReadOnly="True" Name="dtgr_ConsultaProduto" AlternationCount="2" AlternatingRowBackground="LightBlue" Grid.Row="3" Grid.ColumnSpan="3" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Foreground="Red" Width="80" Header="Código"  Binding="{Binding Id}"/>
-                <DataGridTextColumn Foreground="Red" Width="170" Header="Código da Produção"  Binding="{Binding CodigoProducao}"/>
-                <DataGridTextColumn  Width="300" Header="Observação" Binding="{Binding Observacao}" FontFamily="Arial" FontStyle="Oblique"/>
-                <DataGridTextColumn  Width="150" Header="Tempo Inicial" Binding="{Binding HoraInicial}" FontFamily="Arial" FontStyle="Oblique"/>
-                <DataGridTextColumn  Width="150" Header="Tempo Final" Binding="{Binding HoraFinal}" FontFamily="Arial" FontStyle="Oblique"/>
-                <DataGridTextColumn  Width="150" Header="Minutos" Binding="{Binding DiferencaParadaMinutos}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn Foreground="Red" Width="60" Header="Cód."  Binding="{Binding Id}"/>
+                <DataGridTextColumn Foreground="Red" Width="120" Header="Cód. Produção"  Binding="{Binding CodigoProducao}"/>
+                <DataGridTextColumn  Width="150" Header="Tipo" Binding="{Binding TipoParada}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn  Width="120" Header="Obs" Binding="{Binding Observacao}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn  Width="90" Header="T. Inicial" Binding="{Binding HoraInicial}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn  Width="90" Header="T. Final" Binding="{Binding HoraFinal}" FontFamily="Arial" FontStyle="Oblique"/>
+                <DataGridTextColumn  Width="90" Header="Minutos" Binding="{Binding DiferencaParadaMinutos}" FontFamily="Arial" FontStyle="Oblique"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

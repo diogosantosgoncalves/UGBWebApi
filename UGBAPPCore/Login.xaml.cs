@@ -31,7 +31,7 @@ namespace UGBAPPCore
             InitializeComponent();
             listEmpresas = dbSqlServer.Empresas.ToList();
             comboEmpresas.ItemsSource = listEmpresas;
-            comboUsuarios.ItemsSource = dbSqlServer.Usuarios.ToList();
+            comboUsuarios.ItemsSource = dbSqlServer.Usuarios.Where(i => i.Administrador).ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

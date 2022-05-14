@@ -10,6 +10,7 @@ namespace APPTCCUGB.Models
         public decimal Tempo { get; set; }
         public TimeSpan HoraInicial { get; set; }
         public TimeSpan HoraFinal { get; set; }
+        public string TipoParada { get; set; }
 
         public Parada()
         {
@@ -17,6 +18,7 @@ namespace APPTCCUGB.Models
             CodigoProducao = 0;
             Observacao = string.Empty;
             Tempo = 0;
+            TipoParada = string.Empty;
         }
 
         public decimal DiferencaParadaMinutos => Convert.ToDecimal((HoraFinal - HoraInicial).TotalMinutes);

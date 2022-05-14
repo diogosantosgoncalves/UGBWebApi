@@ -10,6 +10,7 @@ namespace UGBWebApi.Models
         public decimal Tempo { get; set; }
         public TimeSpan HoraInicial { get; set; }
         public TimeSpan HoraFinal { get; set; }
+        public string TipoParada { get; set; }
 
         public Parada()
         {
@@ -19,6 +20,7 @@ namespace UGBWebApi.Models
             Tempo = 0;
             HoraInicial = new TimeSpan();
             HoraFinal = new TimeSpan();
+            TipoParada = string.Empty;
         }
     }
 }
