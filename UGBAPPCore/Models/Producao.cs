@@ -13,6 +13,9 @@ namespace APPTCCUGB.Models
         public decimal Resultado { get; set; }
         public decimal QtdeProduzida { get; set; }
         public bool Fechado { get; set; }
+        public int IdTurno { get; set; }
+        public int IdSetor { get; set; }
+        public int IdProduto { get; set; }
 
         public Producao()
         {
@@ -24,6 +27,9 @@ namespace APPTCCUGB.Models
             Resultado = 0;
             QtdeProduzida = 0;
             Fechado = false;
+            IdTurno = 0;
+            IdSetor = 0;
+            IdProduto = 0;
         }
     }
 }

@@ -25,7 +25,7 @@ namespace UGBWebApi.Controllers
             return Ok();
         }
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("Id,NomeProduto,Qtde,QtdeEstimada,Unidade")] List<ProdutoProducao> listProdutoProducao)
+        public async Task<IActionResult> Create([Bind("Id,NomeProduto,Qtde,QtdeEstimada,Unidade,CodigoProduto,CodigoProducao")] List<ProdutoProducao> listProdutoProducao)
         {
             try
             {
