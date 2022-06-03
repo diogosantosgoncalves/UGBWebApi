@@ -74,12 +74,12 @@ namespace UGBAPPCore
 
             var menuParada = new List<SubItem>();
             menuParada.Add(new SubItem("Consulta", new UserControlConsultaParadas()));
-            menuParada.Add(new SubItem("Exportar", new UserControlExportarParadas()));
+            //menuParada.Add(new SubItem("Exportar", new UserControlExportarParadas()));
             var TelaParada = new ItemMenu("Paradas", menuParada, PackIconKind.Register);
 
             var menuPerdas = new List<SubItem>();
             menuPerdas.Add(new SubItem("Consulta", new UserControlConsultaPerdas()));
-            menuPerdas.Add(new SubItem("Exportar", new UserControlExportarPerda()));
+            //menuPerdas.Add(new SubItem("Exportar", new UserControlExportarPerda()));
             var TelaPerdas = new ItemMenu("Perdas", menuPerdas, PackIconKind.Register);
 
             var menuEmpresa = new List<SubItem>();

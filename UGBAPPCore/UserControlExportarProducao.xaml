@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UGBAPPCore"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"  Background="AliceBlue">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -19,10 +19,9 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Consulta de Produção" Grid.ColumnSpan="3"
+        <Label Content="Exportar Produções" Grid.ColumnSpan="3"
             Grid.Row="0" Grid.Column="0" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center"/>
-        <Label FontWeight="Black" Name="lb_nomeUsuario" FontSize="20" Content="Código da Produção:" Grid.Row="2" VerticalAlignment="Center"/>
-        <TextBox Margin="10" FontSize="18" Name="txt_nomeUsuario" Grid.Row="2" Grid.Column="1" />
+        <Label FontWeight="Black" Name="lb_nomeUsuario" FontSize="15" Content="Obs: Irá exportar a listagem das produções, paradas e perdas para o excel." Grid.Row="2" VerticalAlignment="Center"/>
         <Button Name="btnExportarProducao" Content="Exportar"  Grid.Row="2" Grid.Column="2" Cursor="Hand" Click="btnExportarProducao_Click"/>
     </Grid>
 </UserControl>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,12 @@ namespace UGBWebApi.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return Ok(producao);
+        }
+
+        [HttpGet("UltimoCodigo")]
+        public int GetUltimoCodigo()
+        {
+            return  _context.Producoes.OrderByDescending(i => i.Id).FirstOrDefault().Id + 1;
         }
     }
 }
