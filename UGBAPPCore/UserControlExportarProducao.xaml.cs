@@ -276,11 +276,12 @@ namespace UGBAPPCore
 
                 foreach (var producoes in adverts)
                 {
-                    //foreach (var producao in listProducaoJoin)
-                    //{
+                    TimeSpan t = TimeSpan.FromHours(decimal.ToDouble(producoes.turno.HorasProducao));
+                    string answer = string.Format("{0:D2}:{1:D2}:{2:D2}",
+                                    t.Hours,t.Minutes,t.Seconds);
                     workSheet.Cells[indice, 1].Value = producoes.producao.Data.ToShortDateString();
                     workSheet.Cells[indice, 2].Value = producoes.turno.Nome;
-                    workSheet.Cells[indice, 3].Value = producoes.turno.HorasProducao * 60;
+                    workSheet.Cells[indice, 3].Value = answer; //producoes.turno.HorasProducao * 60;
                     workSheet.Cells[indice, 4].Value = producoes.paradas.Sum();
                     workSheet.Cells[indice, 5].Value = producoes.produto.QtdeEstimativa;
                     workSheet.Cells[indice, 6].Value = producoes.produtoproducao.Sum();
@@ -384,7 +385,7 @@ namespace UGBAPPCore
             // define o cabeçalho da planilha(base 1)
             planilhaParadas.Cells[1, 1].Value = "Tipo Parada";
             planilhaParadas.Cells[1, 2].Value = "Observação";
-            planilhaParadas.Cells[1, 3].Value = "Tempo";
+            planilhaParadas.Cells[1, 3].Value = "Tempo(min)";
 
             planilhaParadas.Cells["A1:C1"].Style.Font.Italic = true;
 
