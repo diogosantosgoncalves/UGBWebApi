@@ -42,10 +42,6 @@ namespace APPTCCUGB
             txtUnidade.Text = produto.Unidade.ToString();
         }
 
-        public static void Teste()
-        {
-        }
-
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             Produto produto = new Produto();

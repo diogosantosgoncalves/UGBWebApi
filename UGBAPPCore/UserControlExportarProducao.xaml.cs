@@ -97,17 +97,18 @@ namespace UGBAPPCore
                 workSheet.Row(1).Style.Font.Bold = true;
 
                 // define o cabeçalho da planilha(base 1)
-                workSheet.Cells[1, 1].Value = "Data";
-                workSheet.Cells[1, 2].Value = "Turno";
-                workSheet.Cells[1, 3].Value = "Tempo Previsto(min)";
-                workSheet.Cells[1, 4].Value = "Tempo Parada(min)";
-                workSheet.Cells[1, 5].Value = "Produção Prevista(ton)";
-                workSheet.Cells[1, 6].Value = "Produção Realizada(ton)";
-                workSheet.Cells[1, 7].Value = "Perdas(ton)";
-                workSheet.Cells[1, 8].Value = "Disponibilidade";
-                workSheet.Cells[1, 9].Value = "Performance";
-                workSheet.Cells[1, 10].Value = "Qualidade";
-                workSheet.Cells[1, 11].Value = "Resultado";
+                workSheet.Cells[1, 1].Value = "Data";  //A
+                workSheet.Cells[1, 2].Value = "Turno"; //B
+                workSheet.Cells[1, 3].Value = "Tempo Planejado(min)"; //C
+                workSheet.Cells[1, 4].Value = "Tempo Parada(min)"; //D
+                workSheet.Cells[1, 5].Value = "Produção Prevista(ton)"; //E
+                workSheet.Cells[1, 6].Value = "Tempo de Ciclo Padrão"; //F
+                workSheet.Cells[1, 7].Value = "Produção Realizada"; //G
+                workSheet.Cells[1, 8].Value = "Perdas(ton)"; //H
+                workSheet.Cells[1, 9].Value = "Disponibilidade"; // I
+                workSheet.Cells[1, 10].Value = "Performance"; //J
+                workSheet.Cells[1, 11].Value = "Qualidade"; //K
+                workSheet.Cells[1, 12].Value = "Resultado"; // L
 
                 workSheet.Cells["A1:C1"].Style.Font.Italic = true;
 
@@ -284,12 +285,13 @@ namespace UGBAPPCore
                     workSheet.Cells[indice, 3].Value = answer; //producoes.turno.HorasProducao * 60;
                     workSheet.Cells[indice, 4].Value = producoes.paradas.Sum();
                     workSheet.Cells[indice, 5].Value = producoes.produto.QtdeEstimativa;
-                    workSheet.Cells[indice, 6].Value = producoes.produtoproducao.Sum();
-                    workSheet.Cells[indice, 7].Value = producoes.perdas.Sum();
-                    workSheet.Cells[indice, 8].Value = producoes.producao.IndiceDisponibilidade;
-                    workSheet.Cells[indice, 9].Value = producoes.producao.IndicePerfomance;
-                    workSheet.Cells[indice, 10].Value = producoes.producao.IndiceQualidade;
-                    workSheet.Cells[indice, 11].Value = producoes.producao.Resultado;
+                    workSheet.Cells[indice, 6].Value = (producoes.turno.HorasProducao * 60) / producoes.produto.QtdeEstimativa;
+                    workSheet.Cells[indice, 7].Value = producoes.produtoproducao.Sum();
+                    workSheet.Cells[indice, 8].Value = producoes.perdas.Sum();
+                    workSheet.Cells[indice, 9].Value = producoes.producao.IndiceDisponibilidade;
+                    workSheet.Cells[indice, 10].Value = producoes.producao.IndicePerfomance;
+                    workSheet.Cells[indice, 11].Value = producoes.producao.IndiceQualidade;
+                    workSheet.Cells[indice, 12].Value = producoes.producao.Resultado;
                     indice++;
                     //}
                 }

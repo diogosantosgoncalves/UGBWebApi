@@ -69,5 +69,14 @@ namespace APPTCCUGB
 
             consultarProducoes();
         }
+
+        private void btEditarProducao_Click(object sender, RoutedEventArgs e)
+        {
+            Producao producao = new Producao();
+            AppDbContext dbSqlServer = new AppDbContext();
+            producao = dbSqlServer.Producoes.FirstOrDefault(i => i.Id.Equals(PegarCodigo()));
+
+            UserControlMenuItem.testeTela(new UserControlCadastroProducao(producao));
+        }
     }
 }
